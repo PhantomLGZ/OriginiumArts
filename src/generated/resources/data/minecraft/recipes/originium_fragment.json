@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "originiumarts:originium"
+    }
+  ],
+  "result": {
+    "item": "originiumarts:originium_fragment",
+    "count": 9
+  }
+}

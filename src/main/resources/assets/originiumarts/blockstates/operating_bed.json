@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "originiumarts:block/operating_bed"
+    },
+    "facing=south": {
+      "model": "originiumarts:block/operating_bed",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "originiumarts:block/operating_bed",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "originiumarts:block/operating_bed",
+      "y": 90
+    }
+  }
+}

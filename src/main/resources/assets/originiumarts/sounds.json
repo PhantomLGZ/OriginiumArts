@@ -1,0 +1,106 @@
+{
+  "player.berryheal_s": {
+    "subtitle": "subtitle.originiumarts.berryheal_s",
+    "sounds": [
+      {
+        "name": "originiumarts:player/berryheal_s"
+      }
+    ]
+  },
+  "player.bottle_n": {
+    "subtitle": "subtitle.originiumarts.bottle_n",
+    "sounds": [
+      {
+        "name": "originiumarts:player/bottle_n"
+      }
+    ]
+  },
+  "player.elecwandoverload": {
+    "subtitle": "subtitle.originiumarts.elecwandoverload",
+    "sounds": [
+      {
+        "name": "originiumarts:player/elecwandoverload"
+      }
+    ]
+  },
+  "player.energyshot": {
+    "subtitle": "subtitle.originiumarts.energyshot",
+    "sounds": [
+      {
+        "name": "originiumarts:player/energyshot"
+      }
+    ]
+  },
+  "player.firemag_n": {
+    "subtitle": "subtitle.originiumarts.firemag_n",
+    "sounds": [
+      {
+        "name": "originiumarts:player/firemag_n"
+      }
+    ]
+  },
+  "player.magic_ice": {
+    "subtitle": "subtitle.originiumarts.magic_ice",
+    "sounds": [
+      {
+        "name": "originiumarts:player/magic_ice"
+      }
+    ]
+  },
+  "player.magic_n": {
+    "subtitle": "subtitle.originiumarts.magic_n",
+    "sounds": [
+      {
+        "name": "originiumarts:player/magic_n"
+      }
+    ]
+  },
+  "player.paper_s": {
+    "subtitle": "subtitle.originiumarts.paper_s",
+    "sounds": [
+      {
+        "name": "originiumarts:player/paper_s"
+      }
+    ]
+  },
+  "player.particulateboost": {
+    "subtitle": "subtitle.originiumarts.particulateboost",
+    "sounds": [
+      {
+        "name": "originiumarts:player/particulateboost"
+      }
+    ]
+  },
+  "player.pistol_n": {
+    "subtitle": "subtitle.originiumarts.pistol_n",
+    "sounds": [
+      {
+        "name": "originiumarts:player/pistol_n"
+      }
+    ]
+  },
+  "player.recallbell": {
+    "subtitle": "subtitle.originiumarts.recallbell",
+    "sounds": [
+      {
+        "name": "originiumarts:player/recallbell"
+      }
+    ]
+  },
+  "player.snapping": {
+    "subtitle": "subtitle.originiumarts.snapping",
+    "sounds": [
+      {
+        "name": "originiumarts:player/snapping"
+      }
+    ]
+  },
+  "curemecha": {
+    "subtitle": "subtitle.originiumarts.curemecha",
+    "sounds": [
+      {
+        "name": "originiumarts:curemecha"
+      }
+    ]
+  }
+}

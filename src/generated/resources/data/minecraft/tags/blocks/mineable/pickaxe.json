@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "originiumarts:originium_host_rock",
+    "originiumarts:originium_cluster",
+    "originiumarts:originium_large_bud",
+    "originiumarts:originium_medium_bud",
+    "originiumarts:originium_small_bud"
+  ]
+}

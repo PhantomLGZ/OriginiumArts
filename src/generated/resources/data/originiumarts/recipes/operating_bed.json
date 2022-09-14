@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    " m ",
+    "zzz"
+  ],
+  "key": {
+    "x": {
+      "tag": "minecraft:wool"
+    },
+    "m": {
+      "item": "originiumarts:originium_ingot"
+    },
+    "z": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "originiumarts:operating_bed"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "originiumarts:block/originium_large_bud"
+  }
+}

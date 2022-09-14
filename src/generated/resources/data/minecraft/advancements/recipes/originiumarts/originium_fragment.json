@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:originium_fragment"
+    ]
+  },
+  "criteria": {
+    "has_originium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "originiumarts:originium"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:originium_fragment"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_originium",
+      "has_the_recipe"
+    ]
+  ]
+}

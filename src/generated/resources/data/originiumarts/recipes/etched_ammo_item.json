@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/iron"
+    },
+    {
+      "item": "originiumarts:originium_ingot"
+    }
+  ],
+  "result": {
+    "item": "originiumarts:etched_ammo_item",
+    "count": 4
+  }
+}
