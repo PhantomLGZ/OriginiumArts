@@ -5,7 +5,11 @@ import com.phantom.originiumarts.common.arts.ArtEmpty
 import com.phantom.originiumarts.common.EffectRegister
 import com.phantom.originiumarts.common.network.OANetworking
 import com.phantom.originiumarts.common.network.sendpack.OAAcuteOripathySendPack
+import com.phantom.originiumarts.entity.projectile.ArtBall
+import com.phantom.originiumarts.item.ArtsUnitItem
+import net.minecraft.world.InteractionHand
 import net.minecraft.world.effect.MobEffectInstance
+import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.ai.attributes.AttributeInstance
 import net.minecraft.world.entity.ai.attributes.AttributeModifier
 import net.minecraft.world.entity.ai.attributes.Attributes
@@ -99,10 +103,29 @@ fun Player.getOACapability(): OriginiumArtsCapability? {
     return cap
 }
 
+fun Player?.getArtEffectFactor(entity: Entity? = null): Double {
+    var factor = this?.getOACapability()?.artDamageFactor?.toDouble() ?: 1.0
+    if (entity is ArtBall) {
+        factor *= entity.getEffectFactor()
+    }
+    return factor
+}
+
+fun Player?.getArtEffectFactor(item: ArtsUnitItem): Double {
+    return getArtEffectFactor() * item.effectFactor
+}
+
 fun Player.getUseDurationAmplifier(): Double {
     var amplifier = getEffect(EffectRegister.HIGH_SPEED_CHANT.get())?.amplifier?.toDouble() ?: 1.0
     if (getEffect(EffectRegister.ACUTE_ORIPATHY.get()) != null) {
         amplifier = amplifier * 10 / (getOACapability()?.getBurden()?.takeIf { it > 10.0 } ?: 10.0)
+    }
+    val mainItem = getItemInHand(InteractionHand.MAIN_HAND).item
+    val offItem = getItemInHand(InteractionHand.OFF_HAND).item
+    if (mainItem is ArtsUnitItem) {
+        amplifier *= mainItem.useFactor
+    } else if (offItem is ArtsUnitItem) {
+        amplifier *= offItem.useFactor
     }
     return amplifier
 }
@@ -171,7 +194,7 @@ private fun OriginiumArtsCapability.setStrengthEffect(player: Player) {
     player.getAttribute(Attributes.ATTACK_DAMAGE)?.setOAModifier(
         "cap_strength_attack_damage",
         strength,
-        doubleArrayOf(-0.5, -0.2, 0.0, 0.4, 1.0, 3.0),
+        doubleArrayOf(-0.5, -0.2, 0.0, 0.2, 0.6, 1.5),
         AttributeModifier.Operation.MULTIPLY_BASE
     )
 }

@@ -5,6 +5,8 @@ import com.phantom.originiumarts.common.capability.OriginiumArtsCapability
 import com.phantom.originiumarts.entity.EntityRegister
 import com.phantom.originiumarts.entity.field.GloriousShardsField
 import com.phantom.originiumarts.entity.projectile.ArtBall
+import com.phantom.originiumarts.entity.setEffectFactorByEntity
+import com.phantom.originiumarts.item.ArtsUnitItem
 import com.phantom.originiumarts.item.ItemRegister
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.LivingEntity
@@ -12,6 +14,7 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 import net.minecraft.world.phys.BlockHitResult
+import net.minecraft.world.phys.EntityHitResult
 import net.minecraft.world.phys.Vec3
 
 object ArtGloriousShards : AbstractArts(
@@ -29,18 +32,20 @@ object ArtGloriousShards : AbstractArts(
         gravity = 0.02
     }
 
-    override fun onUse(player: Player) {
-        super.onUse(player)
+    override fun onUse(player: Player, artsUnitItem: ArtsUnitItem) {
+        super.onUse(player, artsUnitItem)
         if (!player.level.isClientSide) {
             player.level.addFreshEntity(ArtBall(EntityRegister.ART_BALL.get(), player.level, player, this).apply {
                 setLifetime(200)
                 setSpeedFactor(1f)
                 setGravity(0.05f)
+                setEffectFactor(artsUnitItem.effectFactor)
             })
         }
     }
 
-    override fun onHitEntity(fromEntity: LivingEntity?, projectile: Entity, hitEntity: LivingEntity) {
+    override fun onHitEntity(fromEntity: LivingEntity?, projectile: Entity, entityHitResult: EntityHitResult) {
+        val hitEntity = entityHitResult.entity
         if (!hitEntity.level.isClientSide) {
             hitEntity.level.addFreshEntity(
                 GloriousShardsField(
@@ -49,20 +54,22 @@ object ArtGloriousShards : AbstractArts(
                 ).apply {
                     owner = fromEntity
                     setPos(hitEntity.position())
+                    setEffectFactorByEntity(projectile)
                 }
             )
         }
     }
 
-    override fun onHitBlock(fromEntity: LivingEntity?, blockHitResult: BlockHitResult, level: Level) {
-        if (!level.isClientSide) {
-            level.addFreshEntity(
+    override fun onHitBlock(fromEntity: LivingEntity?, projectile: Entity, blockHitResult: BlockHitResult) {
+        if (!projectile.level.isClientSide) {
+            projectile.level.addFreshEntity(
                 GloriousShardsField(
                     EntityRegister.GLORIOUS_SHARDS_FIELD.get(),
-                    level
+                    projectile.level
                 ).apply {
                     owner = fromEntity
                     setPos(blockHitResult.location)
+                    setEffectFactorByEntity(projectile)
                 }
             )
         }

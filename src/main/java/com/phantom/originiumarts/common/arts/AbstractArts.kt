@@ -5,6 +5,7 @@ import com.phantom.originiumarts.client.TextKey
 import com.phantom.originiumarts.common.capability.OriginiumArtsCapability.*
 import com.phantom.originiumarts.common.capability.burdenEffect
 import com.phantom.originiumarts.common.capability.getOACapability
+import com.phantom.originiumarts.item.ArtsUnitItem
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.TranslatableComponent
 import net.minecraft.resources.ResourceLocation
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 import net.minecraft.world.phys.BlockHitResult
+import net.minecraft.world.phys.EntityHitResult
 import net.minecraft.world.phys.Vec3
 
 abstract class AbstractArts(
@@ -48,16 +50,16 @@ abstract class AbstractArts(
 
     val name: TranslatableComponent = TranslatableComponent(nameKey)
 
-    open fun onUse(player: Player) {
+    open fun onUse(player: Player, artsUnitItem: ArtsUnitItem) {
         if (player.level.isClientSide) {
             player.burdenEffect()
             player.getOACapability()?.addBurden(burden)
         }
     }
 
-    open fun onHitEntity(fromEntity: LivingEntity?, projectile: Entity, hitEntity: LivingEntity) {}
+    open fun onHitEntity(fromEntity: LivingEntity?, projectile: Entity, entityHitResult: EntityHitResult) {}
 
-    open fun onHitBlock(fromEntity: LivingEntity?, blockHitResult: BlockHitResult, level: Level) {}
+    open fun onHitBlock(fromEntity: LivingEntity?, projectile: Entity, blockHitResult: BlockHitResult) {}
 
     open fun onTimeOut(fromEntity: LivingEntity?, projectile: Entity, level: Level) {}
 

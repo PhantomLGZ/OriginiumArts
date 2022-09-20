@@ -30,10 +30,13 @@ object ItemRegister {
     val STRATEGIC_BATTLE_RECORD: RegistryObject<Item> =
         ITEMS.register("strategic_battle_record") { BattleRecord(BattleRecord.BattleRecordLevel.STRATEGIC) }
 
-    //3D ITEM
+    //Special ITEM
     val OA_STANDARD_PISTOL: RegistryObject<OAStandardPistol> =
         ITEMS.register("oa_standard_pistol") { OAStandardPistol() }
-    val ETCHED_AMMO: RegistryObject<EtchedAmmoItem> = ITEMS.register("etched_ammo_item") { EtchedAmmoItem() }
+    val OA_STANDARD_STAFF: RegistryObject<OAStandardStaff> =
+        ITEMS.register("oa_standard_staff") { OAStandardStaff() }
+    val ETCHED_AMMO: RegistryObject<EtchedAmmoItem> =
+        ITEMS.register("etched_ammo_item") { EtchedAmmoItem() }
 
     //BlockItem
     val ORIGINIUM_HOST_ROCK_ITEM: RegistryObject<BlockItem> =
@@ -58,6 +61,11 @@ object ItemRegister {
     val ACID_ORIGINIUM_SLUG_EGG: RegistryObject<ForgeSpawnEggItem> =
         ITEMS.register("acid_originium_slug") {
             ForgeSpawnEggItem(EntityRegister.ACID_ORIGINIUM_SLUG, 0x97876E, 0xFF4208, basicSetting())
+        }
+
+    val DRONE_MONSTER_EGG: RegistryObject<ForgeSpawnEggItem> =
+        ITEMS.register("drone_monster_egg") {
+            ForgeSpawnEggItem(EntityRegister.DRONE_MONSTER, 0x373737, 0x7E7E7E, basicSetting())
         }
 
     //ART

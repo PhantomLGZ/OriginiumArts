@@ -47,7 +47,7 @@ class ArtBall : BaseProjectile<ArtBall> {
         val entity = entityHitResult.entity
         val from = owner
         if (entity is LivingEntity && from is LivingEntity) {
-            getArtId().getArtById().onHitEntity(from, this, entity)
+            getArtId().getArtById().onHitEntity(from, this, entityHitResult)
         }
         super.onHitEntity(entityHitResult)
     }
@@ -56,7 +56,7 @@ class ArtBall : BaseProjectile<ArtBall> {
         remove(RemovalReason.KILLED)
         val from = owner
         if (from is LivingEntity) {
-            getArtId().getArtById().onHitBlock(from, blockHitResult, level)
+            getArtId().getArtById().onHitBlock(from, this, blockHitResult)
         }
         super.onHitBlock(blockHitResult)
     }
@@ -75,24 +75,36 @@ class ArtBall : BaseProjectile<ArtBall> {
         entityData.set(DATA_ART_ID, id)
     }
 
+    fun getEffectFactor(): Float = entityData.get(DATA_EFFECT_FACTOR)
+
+    fun setEffectFactor(value: Float) {
+        entityData.set(DATA_EFFECT_FACTOR, value)
+    }
+
     override fun defineSynchedData() {
         super.defineSynchedData()
         entityData.define(DATA_ART_ID, ArtEmpty.uniqueID)
+        entityData.define(DATA_EFFECT_FACTOR, 1f)
     }
 
     override fun readAdditionalSaveData(tag: CompoundTag) {
         super.readAdditionalSaveData(tag)
         setArtId(tag.getInt("artId"))
+        setEffectFactor(tag.getFloat("effect_factor"))
     }
 
     override fun addAdditionalSaveData(tag: CompoundTag) {
         super.addAdditionalSaveData(tag)
         tag.putInt("artId", getArtId())
+        tag.putFloat("effect_factor", getEffectFactor())
     }
 
     companion object {
         val DATA_ART_ID: EntityDataAccessor<Int> = SynchedEntityData.defineId(
             ArtBall::class.java, EntityDataSerializers.INT
+        )
+        val DATA_EFFECT_FACTOR: EntityDataAccessor<Float> = SynchedEntityData.defineId(
+            ArtBall::class.java, EntityDataSerializers.FLOAT
         )
     }
 }

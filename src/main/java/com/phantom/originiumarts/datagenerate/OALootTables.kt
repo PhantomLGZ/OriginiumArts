@@ -16,7 +16,7 @@ class OALootTables(dataGenerator: DataGenerator) : BaseLootTableProvider(dataGen
             createSilkTouchTable(
                 "originium_ore",
                 BlockRegister.ORIGINIUM_CLUSTER.get(),
-                ItemRegister.ORIGINIUM.get(),
+                ItemRegister.ORIGINIUM_FRAGMENT.get(),
                 2f,
                 4f
             )

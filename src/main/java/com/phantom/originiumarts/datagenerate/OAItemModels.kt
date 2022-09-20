@@ -2,7 +2,7 @@ package com.phantom.originiumarts.datagenerate
 
 import com.phantom.originiumarts.OriginiumArtsMod
 import com.phantom.originiumarts.block.BlockRegister
-import com.phantom.originiumarts.item.I3DItem
+import com.phantom.originiumarts.item.ISpecialModelItem
 import com.phantom.originiumarts.item.ItemRegister
 import net.minecraft.data.DataGenerator
 import net.minecraft.resources.ResourceLocation
@@ -35,7 +35,7 @@ class OAItemModels(generator: DataGenerator?, existingFileHelper: ExistingFileHe
                                 mcLoc("item/template_spawn_egg")
                             )
                         }
-                        is I3DItem -> {}
+                        is ISpecialModelItem -> {}
                         is BlockItem -> {}
                         else -> {
                             withExistingParent(it, GENERATED)
@@ -45,32 +45,6 @@ class OAItemModels(generator: DataGenerator?, existingFileHelper: ExistingFileHe
                 }
             }
         )
-//        ItemRegister.ORIGINIUM_HOST_ROCK_ITEM.setCubeAll()
-//        ItemRegister.ORIGINIUM_CLUSTER_ITEM.setCross()
-//        ItemRegister.ORIGINIUM_LARGE_BUD_ITEM.setCross()
-//        ItemRegister.ORIGINIUM_MEDIUM_BUD_ITEM.setCross()
-//        ItemRegister.ORIGINIUM_SMALL_BUD_ITEM.setCross()
-        withExistingParent(ItemRegister.OPERATING_BED_ITEM.itemName(), modLoc("block/operating_bed"))
-    }
-
-    private fun RegistryObject<out Item>.setCubeAll() {
-        val name = this.itemName()
-        cubeAll(name, modLoc("item/${name}"))
-    }
-
-    private fun RegistryObject<out Item>.setCross() {
-        val name = this.itemName()
-        cross(name, modLoc("item/${name}"))
-    }
-
-    private fun RegistryObject<out Item>.setCubeColumn() {
-        this.itemName().also {
-            cubeColumn(
-                it,
-                modLoc("item/${it}_side"),
-                modLoc("item/${it}_end")
-            )
-        }
     }
 
     companion object {

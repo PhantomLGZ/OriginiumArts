@@ -6,6 +6,7 @@ import com.phantom.originiumarts.entity.field.GloriousShardsField
 import com.phantom.originiumarts.entity.field.ParticleGeneratorField
 import com.phantom.originiumarts.entity.field.SwirlingVortexField
 import com.phantom.originiumarts.entity.model.AcidOriginiumSlugModel
+import com.phantom.originiumarts.entity.model.DroneMonsterModel
 import com.phantom.originiumarts.entity.model.EtchedAmmoModel
 import com.phantom.originiumarts.entity.model.OriginiumSlugModel
 import com.phantom.originiumarts.entity.projectile.ArtBall
@@ -46,6 +47,16 @@ object EntityRegister {
             .clientTrackingRange(8)
             .setShouldReceiveVelocityUpdates(false)
             .build("acid_originium_slug")
+    }
+
+    val DRONE_MONSTER = ENTITY_TYPE.register("drone_monster") {
+        EntityType.Builder.of({ type, worldLevel ->
+            DroneMonster(type, worldLevel)
+        }, MobCategory.MONSTER)
+            .sized(1.0f, 0.6f)
+            .clientTrackingRange(8)
+            .setShouldReceiveVelocityUpdates(false)
+            .build("drone_monster")
     }
 
     val RAY_ENTITY = ENTITY_TYPE.register("ray_entity") {
@@ -135,12 +146,14 @@ object EntityRegister {
     fun onAttributeCreate(event: EntityAttributeCreationEvent) {
         event.put(ORIGINIUM_SLUG.get(), OriginiumSlug.prepareAttributes().build())
         event.put(ACID_ORIGINIUM_SLUG.get(), AcidOriginiumSlug.prepareAttributes().build())
+        event.put(DRONE_MONSTER.get(), DroneMonster.prepareAttributes().build())
     }
 
     @SubscribeEvent
     fun onRegisterLayers(event: RegisterLayerDefinitions) {
         event.registerLayerDefinition(OriginiumSlugModel.LAYER, OriginiumSlugModel::createBodyLayer)
         event.registerLayerDefinition(AcidOriginiumSlugModel.LAYER, AcidOriginiumSlugModel::createBodyLayer)
+        event.registerLayerDefinition(DroneMonsterModel.LAYER, DroneMonsterModel::createBodyLayer)
         event.registerLayerDefinition(EtchedAmmoModel.LAYER, EtchedAmmoModel::createBodyLayer)
     }
 
@@ -148,6 +161,7 @@ object EntityRegister {
     fun onRegisterRenderer(event: RegisterRenderers) {
         event.registerEntityRenderer(ORIGINIUM_SLUG.get()) { OriginiumSlugRenderer(it) }
         event.registerEntityRenderer(ACID_ORIGINIUM_SLUG.get()) { AcidOriginiumSlugRenderer(it) }
+        event.registerEntityRenderer(DRONE_MONSTER.get()) { DroneMonsterRenderer(it) }
         event.registerEntityRenderer(RAY_ENTITY.get()) { RayEntityRenderer(it) }
         event.registerEntityRenderer(ETCHED_AMMO.get()) { EtchedAmmoRenderer(it) }
         event.registerEntityRenderer(ART_BALL.get()) { ArtBallRenderer(it) }

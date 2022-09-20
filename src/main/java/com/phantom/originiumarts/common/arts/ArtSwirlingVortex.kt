@@ -6,6 +6,8 @@ import com.phantom.originiumarts.common.capability.OriginiumArtsCapability
 import com.phantom.originiumarts.entity.EntityRegister
 import com.phantom.originiumarts.entity.field.SwirlingVortexField
 import com.phantom.originiumarts.entity.projectile.ArtBall
+import com.phantom.originiumarts.entity.setEffectFactorByEntity
+import com.phantom.originiumarts.item.ArtsUnitItem
 import com.phantom.originiumarts.item.ItemRegister
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.entity.Entity
@@ -14,6 +16,7 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 import net.minecraft.world.phys.BlockHitResult
+import net.minecraft.world.phys.EntityHitResult
 import net.minecraft.world.phys.Vec3
 import kotlin.random.Random
 
@@ -30,8 +33,8 @@ object ArtSwirlingVortex : AbstractArts(
         gravity = 0.02
     }
 
-    override fun onUse(player: Player) {
-        super.onUse(player)
+    override fun onUse(player: Player, artsUnitItem: ArtsUnitItem) {
+        super.onUse(player, artsUnitItem)
         if (!player.level.isClientSide) {
             player.level.playSound(
                 null,
@@ -44,11 +47,13 @@ object ArtSwirlingVortex : AbstractArts(
             player.level.addFreshEntity(
                 ArtBall(EntityRegister.ART_BALL.get(), player.level, player, this).apply {
                     setLifetime(20)
+                    setEffectFactor(artsUnitItem.effectFactor)
                 })
         }
     }
 
-    override fun onHitEntity(fromEntity: LivingEntity?, projectile: Entity, hitEntity: LivingEntity) {
+    override fun onHitEntity(fromEntity: LivingEntity?, projectile: Entity, entityHitResult: EntityHitResult) {
+        val hitEntity = entityHitResult.entity
         if (!hitEntity.level.isClientSide) {
             hitEntity.level.playSound(
                 null,
@@ -64,12 +69,15 @@ object ArtSwirlingVortex : AbstractArts(
                     hitEntity.level,
                     hitEntity.position(),
                     fromEntity
-                )
+                ).apply {
+                    setEffectFactorByEntity(projectile)
+                }
             )
         }
     }
 
-    override fun onHitBlock(fromEntity: LivingEntity?, blockHitResult: BlockHitResult, level: Level) {
+    override fun onHitBlock(fromEntity: LivingEntity?, projectile: Entity, blockHitResult: BlockHitResult) {
+        val level = projectile.level
         if (!level.isClientSide) {
             level.playSound(
                 null,
@@ -85,7 +93,9 @@ object ArtSwirlingVortex : AbstractArts(
                     level,
                     blockHitResult.location,
                     fromEntity
-                )
+                ).apply {
+                    setEffectFactorByEntity(projectile)
+                }
             )
         }
     }
@@ -106,7 +116,9 @@ object ArtSwirlingVortex : AbstractArts(
                     level,
                     projectile.position(),
                     fromEntity
-                )
+                ).apply {
+                    setEffectFactorByEntity(projectile)
+                }
             )
         }
     }

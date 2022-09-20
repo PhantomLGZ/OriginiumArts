@@ -1,5 +1,7 @@
 package com.phantom.originiumarts.entity
 
+import com.phantom.originiumarts.entity.field.BaseFieldEntity
+import com.phantom.originiumarts.entity.projectile.ArtBall
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.phys.AABB
@@ -24,4 +26,10 @@ fun List<LivingEntity>.getNearestEntity(centerEntity: Entity): LivingEntity? {
         }
     }
     return resultEntity
+}
+
+fun <T : BaseFieldEntity<T>> T.setEffectFactorByEntity(entity: Entity) {
+    if (entity is ArtBall) {
+        setEffectFactor(entity.getEffectFactor())
+    }
 }

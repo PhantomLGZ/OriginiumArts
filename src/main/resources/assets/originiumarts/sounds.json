@@ -1,4 +1,20 @@
 {
+  "enemy.aim": {
+    "subtitle": "subtitle.originiumarts.aim",
+    "sounds": [
+      {
+        "name": "originiumarts:enemy/aim"
+      }
+    ]
+  },
+  "enemy.vehicle_n": {
+    "subtitle": "subtitle.originiumarts.vehicle_n",
+    "sounds": [
+      {
+        "name": "originiumarts:enemy/vehicle_n"
+      }
+    ]
+  },
   "player.berryheal_s": {
     "subtitle": "subtitle.originiumarts.berryheal_s",
     "sounds": [

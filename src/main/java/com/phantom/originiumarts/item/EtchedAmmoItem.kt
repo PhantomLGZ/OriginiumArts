@@ -6,7 +6,7 @@ import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.Level
 
-class EtchedAmmoItem : Item(basicSetting()), I3DItem {
+class EtchedAmmoItem : Item(basicSetting()), ISpecialModelItem {
 
     fun createAmmo(level: Level, entity: LivingEntity): EtchedAmmo {
         return EtchedAmmo(EntityRegister.ETCHED_AMMO.get(), level, entity)

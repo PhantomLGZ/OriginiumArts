@@ -1,5 +1,6 @@
 package com.phantom.originiumarts.common
 
+import com.phantom.originiumarts.entity.AbstractDrone
 import com.phantom.originiumarts.entity.AbstractOriginiumSlug
 import com.phantom.originiumarts.entity.EntityRegister
 import net.minecraft.world.entity.MobCategory
@@ -28,6 +29,12 @@ object CommonSetup {
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             AbstractOriginiumSlug::checkOriginiumSlugSpawnRules
         )
+        SpawnPlacements.register(
+            EntityRegister.DRONE_MONSTER.get(),
+            SpawnPlacements.Type.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING,
+            AbstractDrone::checkSpawnRules
+        )
     }
 
     @SubscribeEvent
@@ -39,6 +46,10 @@ object CommonSetup {
         event.spawns.addSpawn(
             MobCategory.MONSTER,
             MobSpawnSettings.SpawnerData(EntityRegister.ACID_ORIGINIUM_SLUG.get(), 4, 4, 4)
+        )
+        event.spawns.addSpawn(
+            MobCategory.MONSTER,
+            MobSpawnSettings.SpawnerData(EntityRegister.DRONE_MONSTER.get(), 4, 1, 4)
         )
         event.generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacementFeature.DEEPSLATE_ORIGINIUM_HOST_ROCK)
     }

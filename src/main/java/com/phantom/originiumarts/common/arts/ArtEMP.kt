@@ -5,9 +5,11 @@ import com.phantom.originiumarts.common.SoundRegister
 import com.phantom.originiumarts.common.capability.OriginiumArtsCapability.ValueLevel
 import com.phantom.originiumarts.common.capability.getOACapability
 import com.phantom.originiumarts.common.EffectRegister
+import com.phantom.originiumarts.common.capability.getArtEffectFactor
 import com.phantom.originiumarts.entity.EntityRegister
 import com.phantom.originiumarts.entity.field.ParticleGeneratorField
 import com.phantom.originiumarts.entity.getEntitiesAround
+import com.phantom.originiumarts.item.ArtsUnitItem
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.entity.Mob
@@ -25,8 +27,8 @@ object ArtEMP : AbstractArts(
         needUseTick = 15
     }
 
-    override fun onUse(player: Player) {
-        super.onUse(player)
+    override fun onUse(player: Player, artsUnitItem: ArtsUnitItem) {
+        super.onUse(player, artsUnitItem)
         if (!player.level.isClientSide) {
             player.level.playSound(
                 null,
@@ -37,7 +39,7 @@ object ArtEMP : AbstractArts(
                 1f
             )
             player.getOACapability()?.let { cap ->
-                player.getEntitiesAround(20.0, Mob::class.java).forEach {
+                player.getEntitiesAround(6.0 * player.getArtEffectFactor(artsUnitItem), Mob::class.java).forEach {
                     it.addEffect(
                         MobEffectInstance(
                             EffectRegister.PARALYSIS.get(),

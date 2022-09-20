@@ -3,8 +3,10 @@ package com.phantom.originiumarts.common.arts
 import com.phantom.originiumarts.common.capability.OriginiumArtsCapability
 import com.phantom.originiumarts.client.ParticleRegister
 import com.phantom.originiumarts.common.SoundRegister
+import com.phantom.originiumarts.common.capability.getArtEffectFactor
 import com.phantom.originiumarts.entity.EntityRegister
 import com.phantom.originiumarts.entity.field.ParticleGeneratorField
+import com.phantom.originiumarts.item.ArtsUnitItem
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.entity.MoverType
 import net.minecraft.world.entity.player.Player
@@ -25,8 +27,8 @@ object ArtTrick : AbstractArts(
         needUseTick = 5
     }
 
-    override fun onUse(player: Player) {
-        super.onUse(player)
+    override fun onUse(player: Player, artsUnitItem: ArtsUnitItem) {
+        super.onUse(player, artsUnitItem)
         val level = player.level
         if (!level.isClientSide) {
             level.playSound(
@@ -51,7 +53,8 @@ object ArtTrick : AbstractArts(
                 )
             )
         }
-        player.move(MoverType.SELF, player.lookAngle.multiply(10.0, 10.0, 10.0))
+        val distance = 5.0 * player.getArtEffectFactor(artsUnitItem)
+        player.move(MoverType.SELF, player.lookAngle.multiply(distance, distance, distance))
     }
 
     override fun makeParticle(pos: Vec3, level: Level) {

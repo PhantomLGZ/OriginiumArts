@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  x",
+    " m ",
+    "x  "
+  ],
+  "key": {
+    "x": {
+      "tag": "forge:ingots/iron"
+    },
+    "m": {
+      "item": "originiumarts:originium_ingot"
+    }
+  },
+  "result": {
+    "item": "originiumarts:oa_standard_staff"
+  }
+}

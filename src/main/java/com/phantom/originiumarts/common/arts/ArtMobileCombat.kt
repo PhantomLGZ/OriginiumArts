@@ -2,6 +2,7 @@ package com.phantom.originiumarts.common.arts
 
 import com.phantom.originiumarts.common.capability.OriginiumArtsCapability
 import com.phantom.originiumarts.common.capability.getOACapability
+import com.phantom.originiumarts.item.ArtsUnitItem
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.entity.ai.attributes.AttributeInstance
@@ -24,7 +25,8 @@ object ArtMobileCombat : AbstractArts(
         needUseTick = 0
     }
 
-    override fun onUse(player: Player) {
+    override fun onUse(player: Player, artsUnitItem: ArtsUnitItem) {
+        super.onUse(player, artsUnitItem)
         if (!player.level.isClientSide) {
             player.level.playSound(
                 null,

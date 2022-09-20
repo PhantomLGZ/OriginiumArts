@@ -43,9 +43,9 @@ class AcidOriginiumSlug(type: EntityType<out AbstractOriginiumSlug>, worldLevel:
             val dy = pTarget.eyePosition.y - eyePosition.y
             val dir = lookDir.subtract(0.0, lookDir.y, 0.0).normalize()
                 .add(0.0, dy / dh + 0.1 * dh, 0.0)
-
+            // TODO 音效
             level.addFreshEntity(OriginiumAcid(EntityRegister.ORIGINIUM_ACID.get(), level).apply {
-                owner = this
+                owner = this@AcidOriginiumSlug
                 setPos(this@AcidOriginiumSlug.eyePosition)
                 deltaMovement = dir
             })

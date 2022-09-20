@@ -36,12 +36,6 @@ abstract class BaseFieldEntity<T : BaseFieldEntity<T>>(
 
     open fun makeParticle() {}
 
-    override fun defineSynchedData() {
-        entityData.define(DATA_LIFETIME, 200)
-        entityData.define(DATA_CYCLE, 10)
-        entityData.define(DATA_DIAMETER, 2f)
-    }
-
     fun getLifetime(): Int = entityData.get(DATA_LIFETIME)
 
     fun setLifetime(value: Int) {
@@ -60,16 +54,31 @@ abstract class BaseFieldEntity<T : BaseFieldEntity<T>>(
         entityData.set(DATA_DIAMETER, value)
     }
 
+    fun setEffectFactor(value: Float) {
+        entityData.set(DATA_EFFECT_FACTOR, value)
+    }
+
+    fun getEffectFactor(): Float = entityData.get(DATA_EFFECT_FACTOR)
+
+    override fun defineSynchedData() {
+        entityData.define(DATA_LIFETIME, 200)
+        entityData.define(DATA_CYCLE, 10)
+        entityData.define(DATA_DIAMETER, 2f)
+        entityData.define(DATA_EFFECT_FACTOR, 1f)
+    }
+
     override fun readAdditionalSaveData(compoundTag: CompoundTag) {
         setLifetime(compoundTag.getInt("lifeTime"))
         setCycle(compoundTag.getInt("cycle"))
         setDiameter(compoundTag.getFloat("diameter"))
+        setEffectFactor(compoundTag.getFloat("effect_factor"))
     }
 
     override fun addAdditionalSaveData(compoundTag: CompoundTag) {
         compoundTag.putInt("lifeTime", getLifetime())
         compoundTag.putInt("cycle", getCycle())
         compoundTag.putFloat("diameter", getDiameter())
+        compoundTag.putFloat("effect_factor", getEffectFactor())
     }
 
     companion object {
@@ -83,6 +92,10 @@ abstract class BaseFieldEntity<T : BaseFieldEntity<T>>(
         )
 
         val DATA_DIAMETER: EntityDataAccessor<Float> = SynchedEntityData.defineId(
+            BaseFieldEntity::class.java, EntityDataSerializers.FLOAT
+        )
+
+        val DATA_EFFECT_FACTOR: EntityDataAccessor<Float> = SynchedEntityData.defineId(
             BaseFieldEntity::class.java, EntityDataSerializers.FLOAT
         )
 

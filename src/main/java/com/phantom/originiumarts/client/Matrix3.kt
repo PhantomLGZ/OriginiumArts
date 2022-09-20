@@ -1,6 +1,7 @@
 package com.phantom.originiumarts.client
 
 import com.mojang.math.Vector3f
+import net.minecraft.world.phys.Vec3
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -66,5 +67,14 @@ fun Vector3f.mul(matrix: Matrix3): Vector3f {
         matrix.row(0).mul(array).toFloat(),
         matrix.row(1).mul(array).toFloat(),
         matrix.row(2).mul(array).toFloat()
+    )
+}
+
+fun Vec3.mul(matrix: Matrix3): Vec3 {
+    val array = doubleArrayOf(this.x(), this.y(), this.z())
+    return Vec3(
+        matrix.row(0).mul(array),
+        matrix.row(1).mul(array),
+        matrix.row(2).mul(array)
     )
 }

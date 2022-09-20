@@ -22,13 +22,15 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.ORIGINIUM_FRAGMENT.get(), "源石碎片")
         add(ItemRegister.ORIGINIUM_INGOT.get(), "源石锭")
         add(ItemRegister.ETCHED_AMMO.get(), "蚀刻弹药")
-        add(ItemRegister.OA_STANDARD_PISTOL.get(), "手枪")
+        add(ItemRegister.OA_STANDARD_PISTOL.get(), "制式手枪")
+        add(ItemRegister.OA_STANDARD_STAFF.get(), "制式法杖")
         add(ItemRegister.DRILL_BATTLE_RECORD.get(), "基础作战记录")
         add(ItemRegister.FRONTLINE_BATTLE_RECORD.get(), "初级作战记录")
         add(ItemRegister.TACTICAL_BATTLE_RECORD.get(), "中级作战记录")
         add(ItemRegister.STRATEGIC_BATTLE_RECORD.get(), "高级作战记录")
         add(ItemRegister.ORIGINIUM_SLUG_EGG.get(), "源石虫刷怪蛋")
         add(ItemRegister.ACID_ORIGINIUM_SLUG_EGG.get(), "酸液源石虫刷怪蛋")
+        add(ItemRegister.DRONE_MONSTER_EGG.get(), "\"怪物\"刷怪蛋")
 
         add(BlockRegister.ORIGINIUM_HOST_ROCK.get(), "源石母岩")
         add(BlockRegister.ORIGINIUM_CLUSTER.get(), "源石晶簇")
@@ -37,6 +39,8 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(BlockRegister.ORIGINIUM_SMALL_BUD.get(), "小型源石芽")
         add(BlockRegister.OPERATING_BED_BLOCK.get(), "手术床")
         add(EntityRegister.ORIGINIUM_SLUG.get(), "源石虫")
+        add(EntityRegister.ACID_ORIGINIUM_SLUG.get(), "酸液源石虫")
+        add(EntityRegister.DRONE_MONSTER.get(), "\"怪物\"")
 
         //EFFECT
         add(EffectRegister.ACUTE_ORIPATHY.get(), "急性矿石病")

@@ -9,7 +9,7 @@ import net.minecraft.world.phys.*
 
 class EtchedAmmo : BaseProjectile<EtchedAmmo> {
 
-    private var baseDamage = 5.0
+    var baseDamage = 5.0
     val damageModifyList = mutableMapOf<String, Float>()
 
     constructor(

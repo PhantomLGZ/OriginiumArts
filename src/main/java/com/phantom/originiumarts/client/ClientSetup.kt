@@ -3,11 +3,11 @@ package com.phantom.originiumarts.client
 import com.mojang.math.Vector3f
 import com.phantom.originiumarts.OriginiumArtsMod
 import com.phantom.originiumarts.block.BlockRegister
-import com.phantom.originiumarts.common.capability.getOACapability
 import com.phantom.originiumarts.client.gui.ArtsChangeGui
 import com.phantom.originiumarts.client.gui.ArtsHud
 import com.phantom.originiumarts.client.gui.ArtsLearnGui
 import com.phantom.originiumarts.common.ArtsManager.getArtById
+import com.phantom.originiumarts.common.capability.getOACapability
 import com.phantom.originiumarts.common.capability.getUseDurationAmplifier
 import com.phantom.originiumarts.common.network.OANetworking
 import com.phantom.originiumarts.item.ArtsUnitItem

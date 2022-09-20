@@ -4,9 +4,12 @@ import com.phantom.originiumarts.common.SoundRegister
 import com.phantom.originiumarts.common.capability.OriginiumArtsCapability.ValueLevel
 import com.phantom.originiumarts.common.capability.getOACapability
 import com.phantom.originiumarts.common.EffectRegister
+import com.phantom.originiumarts.common.capability.getArtEffectFactor
+import com.phantom.originiumarts.item.ArtsUnitItem
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.entity.player.Player
+import kotlin.math.roundToInt
 
 object ArtHighSpeedChant : AbstractArts(
     uniqueName = "high_speed_chant",
@@ -20,8 +23,8 @@ object ArtHighSpeedChant : AbstractArts(
         needUseTick = 40
     }
 
-    override fun onUse(player: Player) {
-        super.onUse(player)
+    override fun onUse(player: Player, artsUnitItem: ArtsUnitItem) {
+        super.onUse(player, artsUnitItem)
         if (!player.level.isClientSide) {
             player.level.playSound(
                 null,
@@ -37,12 +40,12 @@ object ArtHighSpeedChant : AbstractArts(
                 player.addEffect(
                     MobEffectInstance(
                         EffectRegister.HIGH_SPEED_CHANT.get(),
-                        when (it.artsAdaptability.getLevel()) {
-                            ValueLevel.EXCELLENT -> 2 * 1200
-                            ValueLevel.OUTSTANDING -> 3 * 1200
-                            ValueLevel.UNKNOWN -> 6 * 1200
+                        (when (it.artsAdaptability.getLevel()) {
+                            ValueLevel.EXCELLENT -> 2 * 300
+                            ValueLevel.OUTSTANDING -> 3 * 300
+                            ValueLevel.UNKNOWN -> 6 * 300
                             else -> 0
-                        },
+                        } * player.getArtEffectFactor(artsUnitItem)).roundToInt(),
                         when (it.artsAdaptability.getLevel()) {
                             ValueLevel.EXCELLENT -> 2
                             ValueLevel.OUTSTANDING -> 2
