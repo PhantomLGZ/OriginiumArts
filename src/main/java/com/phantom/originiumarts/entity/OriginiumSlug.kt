@@ -21,7 +21,7 @@ class OriginiumSlug(type: EntityType<out AbstractOriginiumSlug>, worldLevel: Lev
     override fun registerGoals() {
         super.registerGoals()
         goalSelector.let {
-            it.addGoal(1, MeleeAttackGoal(this, 1.0, true));
+            it.addGoal(1, MeleeAttackGoal(this, 1.0, true))
             it.addGoal(2, MoveTowardsTargetGoal(this, 0.5, 32.0f))
         }
     }

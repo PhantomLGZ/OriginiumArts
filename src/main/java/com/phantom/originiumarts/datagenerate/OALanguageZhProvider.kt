@@ -24,6 +24,8 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.ETCHED_AMMO.get(), "蚀刻弹药")
         add(ItemRegister.OA_STANDARD_PISTOL.get(), "制式手枪")
         add(ItemRegister.OA_STANDARD_STAFF.get(), "制式法杖")
+        add(ItemRegister.OA_STANDARD_SWORD.get(), "制式剑")
+        add(ItemRegister.RIOTER_WATER_PIPE.get(), "水管")
         add(ItemRegister.DRILL_BATTLE_RECORD.get(), "基础作战记录")
         add(ItemRegister.FRONTLINE_BATTLE_RECORD.get(), "初级作战记录")
         add(ItemRegister.TACTICAL_BATTLE_RECORD.get(), "中级作战记录")
@@ -31,6 +33,7 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.ORIGINIUM_SLUG_EGG.get(), "源石虫刷怪蛋")
         add(ItemRegister.ACID_ORIGINIUM_SLUG_EGG.get(), "酸液源石虫刷怪蛋")
         add(ItemRegister.DRONE_MONSTER_EGG.get(), "\"怪物\"刷怪蛋")
+        add(ItemRegister.RIOTER_EGG.get(), "暴徒刷怪蛋")
 
         add(BlockRegister.ORIGINIUM_HOST_ROCK.get(), "源石母岩")
         add(BlockRegister.ORIGINIUM_CLUSTER.get(), "源石晶簇")
@@ -41,6 +44,7 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(EntityRegister.ORIGINIUM_SLUG.get(), "源石虫")
         add(EntityRegister.ACID_ORIGINIUM_SLUG.get(), "酸液源石虫")
         add(EntityRegister.DRONE_MONSTER.get(), "\"怪物\"")
+        add(EntityRegister.RIOTER.get(), "暴徒")
 
         //EFFECT
         add(EffectRegister.ACUTE_ORIPATHY.get(), "急性矿石病")

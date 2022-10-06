@@ -1,0 +1,38 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "originiumarts:item/oa_standard_sword"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [1, 1, 0.4],
+			"rotation": [0, -80, 0],
+			"translation": [0, 6, 0]
+		},
+		"thirdperson_lefthand": {
+			"scale": [1, 1, 0.4],
+			"rotation": [0, -80, 0],
+			"translation": [0, 6, 0]
+		},
+		"firstperson_righthand": {
+			"scale": [1, 1, 0.4],
+			"rotation": [-20, -80, 0],
+			"translation": [0, 6, 0]
+		},
+		"firstperson_lefthand": {
+			"scale": [1, 1, 0.4],
+			"rotation": [-20, -80, 0],
+			"translation": [0, 6, 0]
+		},
+		"ground": {
+			"rotation": [0, 0, 60],
+			"scale": [1, 1, 0.6]
+		},
+		"gui": {
+			"rotation": [0, 0, 60]
+		},
+		"fixed": {
+			"rotation": [0, 0, 60]
+		}
+	}
+}

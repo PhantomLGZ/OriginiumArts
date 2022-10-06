@@ -5,10 +5,7 @@ import com.phantom.originiumarts.entity.field.FineBlendingField
 import com.phantom.originiumarts.entity.field.GloriousShardsField
 import com.phantom.originiumarts.entity.field.ParticleGeneratorField
 import com.phantom.originiumarts.entity.field.SwirlingVortexField
-import com.phantom.originiumarts.entity.model.AcidOriginiumSlugModel
-import com.phantom.originiumarts.entity.model.DroneMonsterModel
-import com.phantom.originiumarts.entity.model.EtchedAmmoModel
-import com.phantom.originiumarts.entity.model.OriginiumSlugModel
+import com.phantom.originiumarts.entity.model.*
 import com.phantom.originiumarts.entity.projectile.ArtBall
 import com.phantom.originiumarts.entity.projectile.EtchedAmmo
 import com.phantom.originiumarts.entity.projectile.OriginiumAcid
@@ -57,6 +54,16 @@ object EntityRegister {
             .clientTrackingRange(8)
             .setShouldReceiveVelocityUpdates(false)
             .build("drone_monster")
+    }
+
+    val RIOTER = ENTITY_TYPE.register("rioter") {
+        EntityType.Builder.of({ type, worldLevel ->
+            Rioter(type, worldLevel)
+        }, MobCategory.MONSTER)
+            .sized(0.8f, 2.0f)
+            .clientTrackingRange(8)
+            .setShouldReceiveVelocityUpdates(false)
+            .build("rioter")
     }
 
     val RAY_ENTITY = ENTITY_TYPE.register("ray_entity") {
@@ -147,6 +154,7 @@ object EntityRegister {
         event.put(ORIGINIUM_SLUG.get(), OriginiumSlug.prepareAttributes().build())
         event.put(ACID_ORIGINIUM_SLUG.get(), AcidOriginiumSlug.prepareAttributes().build())
         event.put(DRONE_MONSTER.get(), DroneMonster.prepareAttributes().build())
+        event.put(RIOTER.get(), Rioter.prepareAttributes().build())
     }
 
     @SubscribeEvent
@@ -154,6 +162,7 @@ object EntityRegister {
         event.registerLayerDefinition(OriginiumSlugModel.LAYER, OriginiumSlugModel::createBodyLayer)
         event.registerLayerDefinition(AcidOriginiumSlugModel.LAYER, AcidOriginiumSlugModel::createBodyLayer)
         event.registerLayerDefinition(DroneMonsterModel.LAYER, DroneMonsterModel::createBodyLayer)
+        event.registerLayerDefinition(RioterModel.LAYER, RioterModel::createBodyLayer)
         event.registerLayerDefinition(EtchedAmmoModel.LAYER, EtchedAmmoModel::createBodyLayer)
     }
 
@@ -162,6 +171,7 @@ object EntityRegister {
         event.registerEntityRenderer(ORIGINIUM_SLUG.get()) { OriginiumSlugRenderer(it) }
         event.registerEntityRenderer(ACID_ORIGINIUM_SLUG.get()) { AcidOriginiumSlugRenderer(it) }
         event.registerEntityRenderer(DRONE_MONSTER.get()) { DroneMonsterRenderer(it) }
+        event.registerEntityRenderer(RIOTER.get()) { RioterRenderer(it) }
         event.registerEntityRenderer(RAY_ENTITY.get()) { RayEntityRenderer(it) }
         event.registerEntityRenderer(ETCHED_AMMO.get()) { EtchedAmmoRenderer(it) }
         event.registerEntityRenderer(ART_BALL.get()) { ArtBallRenderer(it) }

@@ -16,6 +16,10 @@ object SoundRegister {
         SoundEvent(ResourceLocation(OriginiumArtsMod.MOD_ID, "enemy.aim"))
     }
 
+    val E_CHEER_STREET: RegistryObject<SoundEvent> = SOUNDS.register("enemy.cheer_street") {
+        SoundEvent(ResourceLocation(OriginiumArtsMod.MOD_ID, "enemy.cheer_street"))
+    }
+
     val E_VEHICLE_N: RegistryObject<SoundEvent> = SOUNDS.register("enemy.vehicle_n") {
         SoundEvent(ResourceLocation(OriginiumArtsMod.MOD_ID, "enemy.vehicle_n"))
     }

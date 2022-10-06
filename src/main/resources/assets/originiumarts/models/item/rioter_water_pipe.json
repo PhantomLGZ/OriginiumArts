@@ -1,0 +1,38 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "originiumarts:item/rioter_water_pipe"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [1, 1, 0.6],
+			"rotation": [0, 100, 0],
+			"translation": [0, 1, 0]
+		},
+		"thirdperson_lefthand": {
+			"scale": [1, 1, 0.6],
+			"rotation": [0, 100, 0],
+			"translation": [0, 1, 0]
+		},
+		"firstperson_righthand": {
+			"scale": [1, 1, 0.6],
+			"rotation": [-20, 100, 0],
+			"translation": [0, 1, 0]
+		},
+		"firstperson_lefthand": {
+			"scale": [1, 1, 0.6],
+			"rotation": [-20, 100, 0],
+			"translation": [0, 1, 0]
+		},
+		"ground": {
+			"rotation": [0, 0, 60],
+			"scale": [1, 1, 0.8]
+		},
+		"gui": {
+			"rotation": [0, 0, 60]
+		},
+		"fixed": {
+			"rotation": [0, 0, 60]
+		}
+	}
+}

@@ -35,6 +35,10 @@ object ItemRegister {
         ITEMS.register("oa_standard_pistol") { OAStandardPistol() }
     val OA_STANDARD_STAFF: RegistryObject<OAStandardStaff> =
         ITEMS.register("oa_standard_staff") { OAStandardStaff() }
+    val OA_STANDARD_SWORD: RegistryObject<OAStandardSword> =
+        ITEMS.register("oa_standard_sword") { OAStandardSword() }
+    val RIOTER_WATER_PIPE: RegistryObject<RioterWaterPipe> =
+        ITEMS.register("rioter_water_pipe") { RioterWaterPipe() }
     val ETCHED_AMMO: RegistryObject<EtchedAmmoItem> =
         ITEMS.register("etched_ammo_item") { EtchedAmmoItem() }
 
@@ -66,6 +70,11 @@ object ItemRegister {
     val DRONE_MONSTER_EGG: RegistryObject<ForgeSpawnEggItem> =
         ITEMS.register("drone_monster_egg") {
             ForgeSpawnEggItem(EntityRegister.DRONE_MONSTER, 0x373737, 0x7E7E7E, basicSetting())
+        }
+
+    val RIOTER_EGG: RegistryObject<ForgeSpawnEggItem> =
+        ITEMS.register("rioter_egg") {
+            ForgeSpawnEggItem(EntityRegister.RIOTER, 0x383840, 0xD0D0D0, basicSetting())
         }
 
     //ART

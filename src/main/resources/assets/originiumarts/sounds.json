@@ -7,6 +7,14 @@
       }
     ]
   },
+  "enemy.cheer_street": {
+    "subtitle": "subtitle.originiumarts.cheer_street",
+    "sounds": [
+      {
+        "name": "originiumarts:enemy/cheer_street"
+      }
+    ]
+  },
   "enemy.vehicle_n": {
     "subtitle": "subtitle.originiumarts.vehicle_n",
     "sounds": [

@@ -24,6 +24,8 @@ class OALanguageProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.ETCHED_AMMO.get(), "Etched Ammo")
         add(ItemRegister.OA_STANDARD_PISTOL.get(), "Standard Pistol")
         add(ItemRegister.OA_STANDARD_STAFF.get(), "Standard Staff")
+        add(ItemRegister.OA_STANDARD_SWORD.get(), "Standard Sword")
+        add(ItemRegister.RIOTER_WATER_PIPE.get(), "Water Pipe")
         add(ItemRegister.DRILL_BATTLE_RECORD.get(), "Drill Battle Record")
         add(ItemRegister.FRONTLINE_BATTLE_RECORD.get(), "Frontline Battle Record")
         add(ItemRegister.TACTICAL_BATTLE_RECORD.get(), "Tactical Battle Record")
@@ -31,6 +33,7 @@ class OALanguageProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.ORIGINIUM_SLUG_EGG.get(), "Originium Slug Egg")
         add(ItemRegister.ACID_ORIGINIUM_SLUG_EGG.get(), "Acid Originium Slug Egg")
         add(ItemRegister.DRONE_MONSTER_EGG.get(), "\"Monster\" Egg")
+        add(ItemRegister.RIOTER_EGG.get(), "Rioter Egg")
 
         add(BlockRegister.ORIGINIUM_HOST_ROCK.get(), "Originium Host Rock")
         add(BlockRegister.ORIGINIUM_CLUSTER.get(), "Originium Cluster")
@@ -41,6 +44,7 @@ class OALanguageProvider(gen: DataGenerator, locale: String) :
         add(EntityRegister.ORIGINIUM_SLUG.get(), "Originium Slug")
         add(EntityRegister.ACID_ORIGINIUM_SLUG.get(), "Acid Originium Slug")
         add(EntityRegister.DRONE_MONSTER.get(), "\"Monster\"")
+        add(EntityRegister.RIOTER.get(), "Rioter")
 
         //EFFECT
         add(EffectRegister.ACUTE_ORIPATHY.get(), "Acute Oripathy")

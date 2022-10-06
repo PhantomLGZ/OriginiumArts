@@ -1,5 +1,7 @@
 package com.phantom.originiumarts.item
 
+import com.google.common.collect.ImmutableMultimap
+import com.google.common.collect.Multimap
 import com.phantom.originiumarts.OriginiumArtsMod
 import com.phantom.originiumarts.common.ArtsManager.getArtById
 import com.phantom.originiumarts.common.capability.getOACapability
@@ -9,6 +11,9 @@ import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResultHolder
 import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.entity.LivingEntity
+import net.minecraft.world.entity.ai.attributes.Attribute
+import net.minecraft.world.entity.ai.attributes.AttributeModifier
+import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Tier
@@ -16,7 +21,6 @@ import net.minecraft.world.item.TieredItem
 import net.minecraft.world.item.Vanishable
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.block.state.BlockState
-
 
 abstract class ArtsUnitItem(
     properties: Properties,
@@ -27,10 +31,31 @@ abstract class ArtsUnitItem(
     val effectFactor: Float
     val useFactor: Double
 
+    private val defaultModifiers: Multimap<Attribute, AttributeModifier>
+
     init {
         slotSize = tier.getSlotSize()
         effectFactor = tier.getEffectFactor()
         useFactor = tier.getUseFactor()
+
+        val builder = ImmutableMultimap.builder<Attribute, AttributeModifier>()
+        builder.put(
+            Attributes.ATTACK_DAMAGE, AttributeModifier(
+                BASE_ATTACK_DAMAGE_UUID,
+                "ArtsUnit modifier",
+                3.0 + tier.attackDamageBonus,
+                AttributeModifier.Operation.ADDITION
+            )
+        )
+        builder.put(
+            Attributes.ATTACK_SPEED, AttributeModifier(
+                BASE_ATTACK_SPEED_UUID,
+                "ArtsUnit modifier",
+                -3.0 + 0.2 * tier.speed,
+                AttributeModifier.Operation.ADDITION
+            )
+        )
+        this.defaultModifiers = builder.build()
     }
 
     override fun releaseUsing(itemStack: ItemStack, level: Level, livingEntity: LivingEntity, usingDuration: Int) {
@@ -96,9 +121,16 @@ abstract class ArtsUnitItem(
         return true
     }
 
+    override fun getDefaultAttributeModifiers(pEquipmentSlot: EquipmentSlot): Multimap<Attribute, AttributeModifier> {
+        return if (pEquipmentSlot == EquipmentSlot.MAINHAND)
+            defaultModifiers
+        else
+            super.getDefaultAttributeModifiers(pEquipmentSlot)
+    }
+
     interface ArtUnitTier : Tier {
 
-        fun getSlotSize(): Int = 4
+        fun getSlotSize(): Int = 0
 
         fun getEffectFactor(): Float = 1f
 

@@ -1,23 +1,23 @@
 package com.phantom.originiumarts.entity.randerer
 
-import com.phantom.originiumarts.entity.DroneMonster
-import com.phantom.originiumarts.entity.model.DroneMonsterModel
+import com.phantom.originiumarts.entity.Rioter
+import com.phantom.originiumarts.entity.model.RioterModel
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.client.renderer.entity.EntityRendererProvider
-import net.minecraft.client.renderer.entity.LivingEntityRenderer
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer
 import net.minecraft.core.BlockPos
 import net.minecraft.resources.ResourceLocation
 import kotlin.math.max
 
-class DroneMonsterRenderer(context: EntityRendererProvider.Context) :
-    LivingEntityRenderer<DroneMonster, DroneMonsterModel>(
+class RioterRenderer(context: EntityRendererProvider.Context) :
+    HumanoidMobRenderer<Rioter, RioterModel>(
         context,
-        DroneMonsterModel(context.bakeLayer(DroneMonsterModel.LAYER)),
+        RioterModel(context.bakeLayer(RioterModel.LAYER)),
         0.4f
     ) {
 
     override fun getRenderType(
-        pLivingEntity: DroneMonster,
+        pLivingEntity: Rioter,
         pBodyVisible: Boolean,
         pTranslucent: Boolean,
         pGlowing: Boolean
@@ -25,15 +25,15 @@ class DroneMonsterRenderer(context: EntityRendererProvider.Context) :
         return RenderType.entityTranslucent(getTextureLocation(pLivingEntity))
     }
 
-    override fun shouldShowName(entity: DroneMonster): Boolean {
+    override fun shouldShowName(entity: Rioter): Boolean {
         return false
     }
 
-    override fun getBlockLightLevel(entity: DroneMonster, blockPos: BlockPos): Int {
+    override fun getBlockLightLevel(entity: Rioter, blockPos: BlockPos): Int {
         return max(super.getBlockLightLevel(entity, blockPos), 8)
     }
 
-    override fun getTextureLocation(entity: DroneMonster): ResourceLocation {
+    override fun getTextureLocation(entity: Rioter): ResourceLocation {
         return entity.getTextureLocation()
     }
 }

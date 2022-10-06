@@ -65,4 +65,14 @@ object EffectRegister {
             )
     }
 
+    val COLD: RegistryObject<MobEffect> = EFFECTS.register("cold") {
+        object : MobEffect(MobEffectCategory.HARMFUL, 0xC2EFFF) {}
+            .addAttributeModifier(
+                Attributes.ATTACK_SPEED,
+                UUID.nameUUIDFromBytes("cold_attack_speed_down".toByteArray()).toString(),
+                -0.30,
+                AttributeModifier.Operation.MULTIPLY_TOTAL
+            )
+    }
+
 }
