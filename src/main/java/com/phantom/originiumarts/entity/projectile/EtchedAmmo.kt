@@ -7,7 +7,7 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.phys.*
 
 
-class EtchedAmmo : BaseProjectile<EtchedAmmo> {
+class EtchedAmmo : AbstractProjectile {
 
     var baseDamage = 5.0
     val damageModifyList = mutableMapOf<String, Float>()

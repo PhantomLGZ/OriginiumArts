@@ -14,7 +14,7 @@ import net.minecraft.world.phys.BlockHitResult
 import net.minecraft.world.phys.EntityHitResult
 import net.minecraft.world.phys.Vec3
 
-class ArtBall : BaseProjectile<ArtBall> {
+class ArtBall : AbstractProjectile {
 
     constructor(
         entityType: EntityType<ArtBall>,

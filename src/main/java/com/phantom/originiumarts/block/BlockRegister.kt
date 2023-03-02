@@ -12,14 +12,16 @@ object BlockRegister {
     val ORIGINIUM_HOST_ROCK: RegistryObject<OriginiumHostRock> =
         BLOCKS.register("originium_host_rock") { OriginiumHostRock() }
     val ORIGINIUM_SMALL_BUD: RegistryObject<OriginiumClusterBlock> =
-        BLOCKS.register("originium_small_bud") { OriginiumClusterBlock(3,4) }
+        BLOCKS.register("originium_small_bud") { OriginiumClusterBlock(3, 4) }
     val ORIGINIUM_MEDIUM_BUD: RegistryObject<OriginiumClusterBlock> =
-        BLOCKS.register("originium_medium_bud") { OriginiumClusterBlock(4,3) }
+        BLOCKS.register("originium_medium_bud") { OriginiumClusterBlock(4, 3) }
     val ORIGINIUM_LARGE_BUD: RegistryObject<OriginiumClusterBlock> =
-        BLOCKS.register("originium_large_bud") { OriginiumClusterBlock(5,3) }
+        BLOCKS.register("originium_large_bud") { OriginiumClusterBlock(5, 3) }
     val ORIGINIUM_CLUSTER: RegistryObject<OriginiumClusterBlock> =
-        BLOCKS.register("originium_cluster") { OriginiumClusterBlock(7,3) }
+        BLOCKS.register("originium_cluster") { OriginiumClusterBlock(7, 3) }
     val OPERATING_BED_BLOCK: RegistryObject<OperatingBedBlock> =
         BLOCKS.register("operating_bed") { OperatingBedBlock() }
+    val ORIGINIUM_DUST: RegistryObject<OriginiumDust> =
+        BLOCKS.register("originium_dust") { OriginiumDust() }
 
 }

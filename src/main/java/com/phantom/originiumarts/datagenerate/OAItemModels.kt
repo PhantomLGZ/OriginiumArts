@@ -2,6 +2,7 @@ package com.phantom.originiumarts.datagenerate
 
 import com.phantom.originiumarts.OriginiumArtsMod
 import com.phantom.originiumarts.block.BlockRegister
+import com.phantom.originiumarts.block.OriginiumDust
 import com.phantom.originiumarts.item.ISpecialModelItem
 import com.phantom.originiumarts.item.ItemRegister
 import net.minecraft.data.DataGenerator
@@ -19,12 +20,18 @@ class OAItemModels(generator: DataGenerator?, existingFileHelper: ExistingFileHe
     ItemModelProvider(generator, OriginiumArtsMod.MOD_ID, existingFileHelper) {
 
     override fun registerModels() {
-        BlockRegister.BLOCKS.entries.forEach(
-            Consumer { block: RegistryObject<Block> ->
-                val name = block.blockName()
-                withExistingParent(name, modLoc("block/${name}"))
+        BlockRegister.BLOCKS.entries.forEach { block: RegistryObject<Block> ->
+            when (block.get()) {
+                is OriginiumDust -> {
+                    val name = block.blockName()
+                    withExistingParent(name, modLoc("block/${name}_height2"))
+                }
+                else -> {
+                    val name = block.blockName()
+                    withExistingParent(name, modLoc("block/${name}"))
+                }
             }
-        )
+        }
         ItemRegister.ITEMS.entries.forEach(
             Consumer { item: RegistryObject<Item> ->
                 item.itemName().also {

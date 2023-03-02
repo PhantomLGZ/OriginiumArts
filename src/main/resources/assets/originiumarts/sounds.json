@@ -119,11 +119,27 @@
       }
     ]
   },
+  "blizzard": {
+    "subtitle": "subtitle.originiumarts.blizzard",
+    "sounds": [
+      {
+        "name": "originiumarts:blizzard"
+      }
+    ]
+  },
   "curemecha": {
     "subtitle": "subtitle.originiumarts.curemecha",
     "sounds": [
       {
         "name": "originiumarts:curemecha"
+      }
+    ]
+  },
+  "explosion": {
+    "subtitle": "subtitle.originiumarts.explosion",
+    "sounds": [
+      {
+        "name": "originiumarts:explosion"
       }
     ]
   }

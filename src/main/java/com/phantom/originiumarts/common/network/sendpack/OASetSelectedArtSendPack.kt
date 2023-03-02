@@ -19,6 +19,7 @@ class OASetSelectedArtSendPack(private val artId: Int) : ISendPack {
         ctx.get().enqueueWork {
             val sender = ctx.get().sender
             sender?.getOACapability()?.selectedArtId = artId
+            sender?.stopUsingItem()
         }
         ctx.get().packetHandled = true
     }

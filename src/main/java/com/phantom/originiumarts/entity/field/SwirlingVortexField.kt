@@ -11,7 +11,7 @@ import net.minecraft.world.phys.Vec3
 class SwirlingVortexField(
     entityType: EntityType<SwirlingVortexField>,
     level: Level
-) : BaseFieldEntity<SwirlingVortexField>(entityType, level) {
+) : BaseFieldEntity(entityType, level) {
 
     constructor(
         entityType: EntityType<SwirlingVortexField>,

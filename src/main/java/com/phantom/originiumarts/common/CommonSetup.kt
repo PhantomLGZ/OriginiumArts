@@ -37,7 +37,13 @@ object CommonSetup {
             EntityRegister.RIOTER.get(),
             SpawnPlacements.Type.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            Rioter::checkSpawnRules
+            AbstractRioter::checkSpawnRules
+        )
+        SpawnPlacements.register(
+            EntityRegister.COCKTAIL_THROWER.get(),
+            SpawnPlacements.Type.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            AbstractRioter::checkSpawnRules
         )
     }
 
@@ -49,7 +55,7 @@ object CommonSetup {
         )
         event.spawns.addSpawn(
             MobCategory.MONSTER,
-            MobSpawnSettings.SpawnerData(EntityRegister.ACID_ORIGINIUM_SLUG.get(), 4, 4, 4)
+            MobSpawnSettings.SpawnerData(EntityRegister.ACID_ORIGINIUM_SLUG.get(), 2, 2, 2)
         )
         event.spawns.addSpawn(
             MobCategory.MONSTER,
@@ -58,6 +64,10 @@ object CommonSetup {
         event.spawns.addSpawn(
             MobCategory.MONSTER,
             MobSpawnSettings.SpawnerData(EntityRegister.RIOTER.get(), 2, 2, 4)
+        )
+        event.spawns.addSpawn(
+            MobCategory.MONSTER,
+            MobSpawnSettings.SpawnerData(EntityRegister.COCKTAIL_THROWER.get(), 2, 1, 1)
         )
         event.generation.addFeature(
             GenerationStep.Decoration.UNDERGROUND_ORES,

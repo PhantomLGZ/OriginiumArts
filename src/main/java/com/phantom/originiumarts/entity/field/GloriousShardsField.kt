@@ -20,7 +20,7 @@ import net.minecraft.world.phys.Vec3
 class GloriousShardsField(
     entityType: EntityType<GloriousShardsField>,
     level: Level
-) : BaseFieldEntity<GloriousShardsField>(entityType, level) {
+) : BaseFieldEntity(entityType, level) {
 
     private var damage = 2.5
 
@@ -50,11 +50,11 @@ class GloriousShardsField(
             damage = 2.5 * it.artDamageFactor
             setDiameter(
                 when (it.artsAdaptability.getLevel()) {
-                    OriginiumArtsCapability.ValueLevel.FLAWED -> 4f
-                    OriginiumArtsCapability.ValueLevel.NORMAL -> 4f
-                    OriginiumArtsCapability.ValueLevel.STANDARD -> 4f
-                    OriginiumArtsCapability.ValueLevel.EXCELLENT -> 4f
-                    OriginiumArtsCapability.ValueLevel.OUTSTANDING -> 6f
+                    OriginiumArtsCapability.ValueLevel.FLAWED -> 6f
+                    OriginiumArtsCapability.ValueLevel.NORMAL -> 6f
+                    OriginiumArtsCapability.ValueLevel.STANDARD -> 6f
+                    OriginiumArtsCapability.ValueLevel.EXCELLENT -> 6f
+                    OriginiumArtsCapability.ValueLevel.OUTSTANDING -> 8f
                     OriginiumArtsCapability.ValueLevel.UNKNOWN -> 12f
                 }
             )

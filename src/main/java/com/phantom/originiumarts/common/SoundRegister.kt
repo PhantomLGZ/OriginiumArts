@@ -72,8 +72,16 @@ object SoundRegister {
         SoundEvent(ResourceLocation(OriginiumArtsMod.MOD_ID, "player.snapping"))
     }
 
+    val BLIZZARD: RegistryObject<SoundEvent> = SOUNDS.register("blizzard") {
+        SoundEvent(ResourceLocation(OriginiumArtsMod.MOD_ID, "blizzard"))
+    }
+
     val CUREMECHA: RegistryObject<SoundEvent> = SOUNDS.register("curemecha") {
         SoundEvent(ResourceLocation(OriginiumArtsMod.MOD_ID, "curemecha"))
+    }
+
+    val EXPLOSION: RegistryObject<SoundEvent> = SOUNDS.register("explosion") {
+        SoundEvent(ResourceLocation(OriginiumArtsMod.MOD_ID, "explosion"))
     }
 
 }

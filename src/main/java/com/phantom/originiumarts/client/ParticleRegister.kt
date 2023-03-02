@@ -55,6 +55,10 @@ object ParticleRegister {
         SimpleParticleType(false)
     }
 
+    val RAIN_SPLASH: RegistryObject<SimpleParticleType> = PARTICLE_TYPES.register("rain_splash") {
+        SimpleParticleType(false)
+    }
+
     @SubscribeEvent
     fun onParticleFactoryRegistration(event: ParticleFactoryRegisterEvent) {
         Minecraft.getInstance().particleEngine.let {
@@ -84,6 +88,9 @@ object ParticleRegister {
             }
             it.register(FRAGRANCE.get()) { spriteSet ->
                 FragranceParticle.Companion.Factory(spriteSet)
+            }
+            it.register(RAIN_SPLASH.get()) { spriteSet ->
+                RainSplashParticle.Companion.Factory(spriteSet)
             }
         }
     }

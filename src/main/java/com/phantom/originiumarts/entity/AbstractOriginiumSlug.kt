@@ -19,8 +19,10 @@ import net.minecraft.world.phys.AABB
 import net.minecraftforge.common.BiomeDictionary
 import java.util.*
 
-abstract class AbstractOriginiumSlug(type: EntityType<out Animal>, worldLevel: Level) :
-    Animal(type, worldLevel), NeutralMob {
+abstract class AbstractOriginiumSlug(
+    type: EntityType<out AbstractOriginiumSlug>,
+    worldLevel: Level
+) : Animal(type, worldLevel), NeutralMob {
 
     private var persistentAngerTarget: UUID? = null
 
@@ -77,8 +79,8 @@ abstract class AbstractOriginiumSlug(type: EntityType<out Animal>, worldLevel: L
 
         private val PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39)
 
-        fun <T : AbstractOriginiumSlug> checkOriginiumSlugSpawnRules(
-            entityType: EntityType<T>,
+        fun checkOriginiumSlugSpawnRules(
+            entityType: EntityType<out AbstractOriginiumSlug>,
             levelAccessor: LevelAccessor,
             mobSpawnType: MobSpawnType,
             blockPos: BlockPos,

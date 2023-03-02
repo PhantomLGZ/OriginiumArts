@@ -1,6 +1,7 @@
 package com.phantom.originiumarts.item
 
 import net.minecraft.server.level.ServerPlayer
+import net.minecraft.world.entity.player.Player
 
 interface IOverrideAttack {
 
@@ -10,6 +11,9 @@ interface IOverrideAttack {
         } else {
             player.resetAttackStrengthTicker()
         }
+    }
+
+    fun onClickInClient(player: Player) {
     }
 
     fun attack(player: ServerPlayer)

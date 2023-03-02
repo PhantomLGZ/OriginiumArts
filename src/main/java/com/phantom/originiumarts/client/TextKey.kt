@@ -16,6 +16,8 @@ object TextKey {
     const val KEY_TEXT_COMBAT_SKILL = "text.originiumarts.combat_skill"
     const val KEY_TEXT_ARTS_ADAPTABILITY = "text.originiumarts.arts_adaptability"
     const val KEY_TEXT_CLEAR_LEARNED_ARTS = "text.originiumarts.clear_learned_arts"
+    const val KEY_TEXT_SET_CATASTROPHE_INTENSITY = "text.originiumarts.set_catastrophe_intensity"
+    const val KEY_TEXT_ADD_CATASTROPHE = "text.originiumarts.add_catastrophe"
 
     const val KEY_TEXT_FULL_NOW = "text.originiumarts.full_now"
     const val KEY_TEXT_NEED_EXPERIENCE = "text.originiumarts.insufficient_experience"

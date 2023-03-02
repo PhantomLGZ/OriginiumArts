@@ -19,6 +19,7 @@ object ItemRegister {
     val ORIGINIUM: RegistryObject<Item> = ITEMS.register("originium") { Item(basicSetting()) }
     val ORIGINIUM_INGOT: RegistryObject<Item> = ITEMS.register("originium_ingot") { Item(basicSetting()) }
     val ORIGINIUM_FRAGMENT: RegistryObject<Item> = ITEMS.register("originium_fragment") { Item(basicSetting()) }
+    val COCKTAIL: RegistryObject<Item> = ITEMS.register("cocktail") { Cocktail() }
 
     //FOOD
     val DRILL_BATTLE_RECORD: RegistryObject<Item> =
@@ -53,6 +54,8 @@ object ItemRegister {
         ITEMS.register("originium_medium_bud") { BlockItem(BlockRegister.ORIGINIUM_MEDIUM_BUD.get(), basicSetting()) }
     val ORIGINIUM_SMALL_BUD_ITEM: RegistryObject<BlockItem> =
         ITEMS.register("originium_small_bud") { BlockItem(BlockRegister.ORIGINIUM_SMALL_BUD.get(), basicSetting()) }
+    val ORIGINIUM_DUST_ITEM: RegistryObject<BlockItem> =
+        ITEMS.register("originium_dust") { BlockItem(BlockRegister.ORIGINIUM_DUST.get(), basicSetting()) }
     val OPERATING_BED_ITEM: RegistryObject<BlockItem> =
         ITEMS.register("operating_bed") { BlockItem(BlockRegister.OPERATING_BED_BLOCK.get(), basicSetting()) }
 
@@ -75,6 +78,11 @@ object ItemRegister {
     val RIOTER_EGG: RegistryObject<ForgeSpawnEggItem> =
         ITEMS.register("rioter_egg") {
             ForgeSpawnEggItem(EntityRegister.RIOTER, 0x383840, 0xD0D0D0, basicSetting())
+        }
+
+    val COCKTAIL_THROWER_EGG: RegistryObject<ForgeSpawnEggItem> =
+        ITEMS.register("cocktail_thrower_egg") {
+            ForgeSpawnEggItem(EntityRegister.COCKTAIL_THROWER, 0x383840, 0x6A332B, basicSetting())
         }
 
     //ART

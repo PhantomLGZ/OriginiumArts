@@ -21,8 +21,10 @@ import net.minecraftforge.common.BiomeDictionary
 import thedarkcolour.kotlinforforge.kotlin.enumSetOf
 import kotlin.random.Random
 
-abstract class AbstractDrone(type: EntityType<DroneMonster>, worldLevel: Level) :
-    FlyingMob(type, worldLevel) {
+abstract class AbstractDrone(
+    type: EntityType<out AbstractDrone>,
+    worldLevel: Level
+) : FlyingMob(type, worldLevel) {
 
     init {
         moveControl = DroneMoveControl(this)
@@ -41,8 +43,8 @@ abstract class AbstractDrone(type: EntityType<DroneMonster>, worldLevel: Level) 
 
     companion object {
 
-        fun <T : AbstractDrone> checkSpawnRules(
-            entityType: EntityType<T>,
+        fun checkSpawnRules(
+            entityType: EntityType<out AbstractDrone>,
             levelAccessor: LevelAccessor,
             mobSpawnType: MobSpawnType,
             blockPos: BlockPos,
@@ -133,12 +135,10 @@ abstract class AbstractDrone(type: EntityType<DroneMonster>, worldLevel: Level) 
 
     class DroneRandomLookAroundGoal(private val drone: AbstractDrone) : RandomLookAroundGoal(drone) {
         override fun canUse(): Boolean {
-            println("TEST Use ${drone.target?.isAlive}")
             return super.canUse() && drone.target?.isAlive != true
         }
 
         override fun canContinueToUse(): Boolean {
-            println("TEST Continue ${drone.target?.isAlive}")
             return super.canContinueToUse() && drone.target?.isAlive != true
         }
     }

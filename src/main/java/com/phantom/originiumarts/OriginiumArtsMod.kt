@@ -29,6 +29,7 @@ class OriginiumArtsMod {
             ParticleRegister.PARTICLE_TYPES.register(it)
             it.addListener(this::onClientSetup)
             it.addListener(this::onCommonSetup)
+            it.addListener(this::onServerSetup)
         }
         OANetworking.registerMessage()
         OAConfig.register()
@@ -40,6 +41,10 @@ class OriginiumArtsMod {
 
     private fun onCommonSetup(event: FMLCommonSetupEvent) {
         event.enqueueWork(CommonSetup::setup)
+    }
+
+    private fun onServerSetup(event: FMLCommonSetupEvent) {
+        event.enqueueWork(ServerSetup::setup)
     }
 
     companion object {

@@ -53,7 +53,7 @@ object ArtTrick : AbstractArts(
                 )
             )
         }
-        val distance = 5.0 * player.getArtEffectFactor(artsUnitItem)
+        val distance = 10.0 * player.getArtEffectFactor(artsUnitItem)
         player.move(MoverType.SELF, player.lookAngle.multiply(distance, distance, distance))
     }
 

@@ -5,6 +5,7 @@ import com.phantom.originiumarts.common.arts.AbstractArts
 import com.phantom.originiumarts.common.ArtsManager
 import com.phantom.originiumarts.common.capability.getOACapability
 import com.phantom.originiumarts.common.network.OANetworking
+import com.phantom.originiumarts.common.network.sendpack.OAPlayerLearnArtSendPack
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiComponent
 import net.minecraft.client.gui.components.Widget
@@ -53,7 +54,7 @@ class ArtsTreePage(
                 onClicked = {
                     Minecraft.getInstance().player?.let { player ->
                         if (art.learningUnmetConditions(player).isEmpty()) {
-                            OANetworking.sendPlayerLearnArt(art.uniqueID)
+                            OANetworking.sendToServer(OAPlayerLearnArtSendPack(art.uniqueID))
                             isLearned = true
                         }
                     }

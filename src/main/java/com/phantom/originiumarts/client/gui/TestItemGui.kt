@@ -7,11 +7,14 @@ import com.phantom.originiumarts.client.gui.widget.CapabilitySliderButton
 import com.phantom.originiumarts.common.capability.*
 import com.phantom.originiumarts.common.network.*
 import com.phantom.originiumarts.common.network.sendpack.OACapSetSendPack
+import com.phantom.originiumarts.common.network.sendpack.OACatastropheIntensitySendPack
 import com.phantom.originiumarts.common.network.sendpack.OAClearLearnedArtsSendPack
 import com.phantom.originiumarts.item.ItemRegister
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.components.Button
+import net.minecraft.client.gui.components.EditBox
 import net.minecraft.client.gui.screens.Screen
+import net.minecraft.network.chat.TextComponent
 import net.minecraft.network.chat.TranslatableComponent
 import kotlin.math.roundToInt
 
@@ -25,7 +28,7 @@ class TestItemGui :
         super.init()
         val length = (width / 2.0).roundToInt()
         val wide = (length / 10.0).roundToInt()
-        LogUtils.getLogger().error("TEST ${cap?.getAllInfo()}")
+        LogUtils.getLogger().info("OAM: test ${cap?.getAllInfo()}")
         addRenderableWidget(
             CapabilitySliderButton(
                 x = 10,
@@ -109,12 +112,67 @@ class TestItemGui :
                 OANetworking.sendToServer(OAClearLearnedArtsSendPack())
             }
         )
+        val catastrophe = EditBox(
+            font,
+            30 + length,
+            wide / 2 * 4,
+            length / 4,
+            wide,
+            TextComponent("0")
+        )
+        addRenderableWidget(catastrophe)
+        addRenderableWidget(
+            Button(
+                40 + length / 4 * 5,
+                wide / 2 * 4,
+                length / 4,
+                wide,
+                TranslatableComponent(TextKey.KEY_TEXT_SET_CATASTROPHE_INTENSITY)
+            ) {
+                catastrophe.value.toIntOrNull()?.let {
+                    OANetworking.sendToServer(OACatastropheIntensitySendPack(it))
+                }
+            }
+        )
+        addRenderableWidget(
+            Button(
+                50 + length / 4 * 6,
+                wide / 2 * 4,
+                length / 4,
+                wide,
+                TranslatableComponent(TextKey.KEY_TEXT_ADD_CATASTROPHE)
+            ) {
+                catastrophe.value.toIntOrNull()?.let {
+                    OANetworking.sendToServer(OACatastropheIntensitySendPack(it, true))
+                }
+            }
+        )
+//        addRenderableWidget(
+//            object : AbstractSliderButton(
+//                30 + length,
+//                wide / 2 * 7,
+//                length * 2 / 3,
+//                wide,
+//                TextComponent("temp"),
+//                MeteorRenderer.temp / 360.0
+//            ) {
+//                override fun updateMessage() {
+//                    message = TextComponent((value.toFloat() * 360).toString())
+//                }
+//
+//                override fun applyValue() {
+//                    MeteorRenderer.temp = value.toFloat() * 360
+//                }
+//            }
+//        )
     }
 
     override fun render(poseStack: PoseStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
         this.renderBackground(poseStack)
         super.render(poseStack, mouseX, mouseY, partialTicks)
     }
+
+    override fun isPauseScreen(): Boolean = false
 
     companion object {
 

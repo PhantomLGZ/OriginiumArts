@@ -26,6 +26,7 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.OA_STANDARD_STAFF.get(), "制式法杖")
         add(ItemRegister.OA_STANDARD_SWORD.get(), "制式剑")
         add(ItemRegister.RIOTER_WATER_PIPE.get(), "水管")
+        add(ItemRegister.COCKTAIL.get(), "燃烧瓶")
         add(ItemRegister.DRILL_BATTLE_RECORD.get(), "基础作战记录")
         add(ItemRegister.FRONTLINE_BATTLE_RECORD.get(), "初级作战记录")
         add(ItemRegister.TACTICAL_BATTLE_RECORD.get(), "中级作战记录")
@@ -34,17 +35,20 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.ACID_ORIGINIUM_SLUG_EGG.get(), "酸液源石虫刷怪蛋")
         add(ItemRegister.DRONE_MONSTER_EGG.get(), "\"怪物\"刷怪蛋")
         add(ItemRegister.RIOTER_EGG.get(), "暴徒刷怪蛋")
+        add(ItemRegister.COCKTAIL_THROWER_EGG.get(), "鸡尾酒投掷者刷怪蛋")
 
         add(BlockRegister.ORIGINIUM_HOST_ROCK.get(), "源石母岩")
         add(BlockRegister.ORIGINIUM_CLUSTER.get(), "源石晶簇")
         add(BlockRegister.ORIGINIUM_LARGE_BUD.get(), "大型源石芽")
         add(BlockRegister.ORIGINIUM_MEDIUM_BUD.get(), "中型源石芽")
         add(BlockRegister.ORIGINIUM_SMALL_BUD.get(), "小型源石芽")
+        add(BlockRegister.ORIGINIUM_DUST.get(), "源石尘")
         add(BlockRegister.OPERATING_BED_BLOCK.get(), "手术床")
         add(EntityRegister.ORIGINIUM_SLUG.get(), "源石虫")
         add(EntityRegister.ACID_ORIGINIUM_SLUG.get(), "酸液源石虫")
         add(EntityRegister.DRONE_MONSTER.get(), "\"怪物\"")
         add(EntityRegister.RIOTER.get(), "暴徒")
+        add(EntityRegister.COCKTAIL_THROWER.get(), "鸡尾酒投掷者")
 
         //EFFECT
         add(EffectRegister.ACUTE_ORIPATHY.get(), "急性矿石病")
@@ -67,6 +71,8 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
         add(TextKey.KEY_TEXT_COMBAT_SKILL, "战斗技巧")
         add(TextKey.KEY_TEXT_ARTS_ADAPTABILITY, "源石技艺适应性")
         add(TextKey.KEY_TEXT_CLEAR_LEARNED_ARTS, "清除已学习技艺")
+        add(TextKey.KEY_TEXT_SET_CATASTROPHE_INTENSITY, "设置天灾强度")
+        add(TextKey.KEY_TEXT_ADD_CATASTROPHE, "生成天灾")
 
         //ARTS
         ArtIgnition.addArtsLang(
@@ -129,7 +135,7 @@ class OALanguageZhProvider(gen: DataGenerator, locale: String) :
             "辉煌裂片",
             "丢出一个碎片，在命中区域生成雷暴区域，不断对区域内随机目标发射会扩散的电流"
         )
-        add(ArtEmpty.getNameKey(), "空的")
+        add(ArtEmpty.getNameKey(), "空")
 
         add(KeyBinds.KEY_CATEGORY, "源石技艺")
         add(KeyBinds.KEY_CHANGE_ARTS, "变更技艺")

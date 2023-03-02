@@ -134,8 +134,8 @@ class OriginiumArtsCapability : INBTSerializable<CompoundTag> {
             putIntArray("installedArtIds", installedArtIds.toIntArray())
             putInt("selectedArtId", selectedArtId)
             putDouble("burden", burden)
-            putDouble("cellOriginiumAssimilation", cellOriginiumAssimilation)
-            putDouble("bloodOriginiumCrystalDensity", bloodOriginiumCrystalDensity)
+//            putDouble("cellOriginiumAssimilation", cellOriginiumAssimilation)
+//            putDouble("bloodOriginiumCrystalDensity", bloodOriginiumCrystalDensity)
             putFloat("healthOnDisconnect", healthOnDisconnect)
         }
 
@@ -157,8 +157,8 @@ class OriginiumArtsCapability : INBTSerializable<CompoundTag> {
             }
             nbt.getInt("selectedArtId").let { selectedArtId = it }
             nbt.getDouble("burden").let { burden = it }
-            nbt.getDouble("cellOriginiumAssimilation").let { cellOriginiumAssimilation = it }
-            nbt.getDouble("bloodOriginiumCrystalDensity").let { bloodOriginiumCrystalDensity = it }
+//            nbt.getDouble("cellOriginiumAssimilation").let { cellOriginiumAssimilation = it }
+//            nbt.getDouble("bloodOriginiumCrystalDensity").let { bloodOriginiumCrystalDensity = it }
             nbt.getFloat("healthOnDisconnect").let { healthOnDisconnect = it }
         }
     }

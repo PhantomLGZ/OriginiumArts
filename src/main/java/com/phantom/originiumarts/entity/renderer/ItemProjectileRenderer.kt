@@ -1,26 +1,23 @@
-package com.phantom.originiumarts.entity.randerer
+package com.phantom.originiumarts.entity.renderer
 
 import com.mojang.blaze3d.vertex.PoseStack
 import com.mojang.math.Vector3f
-import com.phantom.originiumarts.OriginiumArtsMod
-import com.phantom.originiumarts.entity.projectile.OriginiumAcid
-import com.phantom.originiumarts.item.ItemRegister
+import com.phantom.originiumarts.entity.projectile.ItemProjectile
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.block.model.ItemTransforms
 import net.minecraft.client.renderer.entity.EntityRenderer
 import net.minecraft.client.renderer.entity.EntityRendererProvider
 import net.minecraft.client.renderer.texture.OverlayTexture
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.item.ItemStack
 
-class OriginiumAcidRenderer(
+class ItemProjectileRenderer(
     context: EntityRendererProvider.Context
-) : EntityRenderer<OriginiumAcid>(context) {
+) : EntityRenderer<ItemProjectile>(context) {
 
     private val itemRenderer = context.itemRenderer
 
     override fun render(
-        entity: OriginiumAcid,
+        entity: ItemProjectile,
         entityYaw: Float,
         partialTicks: Float,
         poseStack: PoseStack,
@@ -31,8 +28,9 @@ class OriginiumAcidRenderer(
             poseStack.pushPose()
             poseStack.mulPose(entityRenderDispatcher.cameraOrientation())
             poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0f))
+            entity.poseStackInRender(poseStack)
             itemRenderer.renderStatic(
-                itemStack,
+                entity.getItemStack(),
                 ItemTransforms.TransformType.GUI,
                 15728880,
                 OverlayTexture.NO_OVERLAY,
@@ -45,12 +43,7 @@ class OriginiumAcidRenderer(
         }
     }
 
-    companion object {
-        private val itemStack = ItemStack(ItemRegister.ORIGINIUM_ACID.get())
-    }
-
-    override fun getTextureLocation(pEntity: OriginiumAcid): ResourceLocation {
-        return ResourceLocation(OriginiumArtsMod.MOD_ID, "textures/item/originium_acid.png")
-    }
+    override fun getTextureLocation(pEntity: ItemProjectile): ResourceLocation =
+        pEntity.getTextureLocation()
 
 }

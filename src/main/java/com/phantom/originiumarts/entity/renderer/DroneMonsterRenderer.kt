@@ -1,4 +1,4 @@
-package com.phantom.originiumarts.entity.randerer
+package com.phantom.originiumarts.entity.renderer
 
 import com.phantom.originiumarts.entity.DroneMonster
 import com.phantom.originiumarts.entity.model.DroneMonsterModel

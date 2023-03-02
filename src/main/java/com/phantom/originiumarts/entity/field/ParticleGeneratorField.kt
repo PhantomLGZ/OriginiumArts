@@ -14,7 +14,7 @@ import net.minecraft.world.phys.Vec3
 class ParticleGeneratorField(
     entityType: EntityType<ParticleGeneratorField>,
     level: Level
-) : BaseFieldEntity<ParticleGeneratorField>(entityType, level) {
+) : BaseFieldEntity(entityType, level) {
 
     constructor(
         entityType: EntityType<ParticleGeneratorField>,

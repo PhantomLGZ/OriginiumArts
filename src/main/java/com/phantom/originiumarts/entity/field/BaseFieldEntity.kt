@@ -8,8 +8,8 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.projectile.Projectile
 import net.minecraft.world.level.Level
 
-abstract class BaseFieldEntity<T : BaseFieldEntity<T>>(
-    entityType: EntityType<T>,
+abstract class BaseFieldEntity(
+    entityType: EntityType<out BaseFieldEntity>,
     level: Level
 ) : Projectile(entityType, level) {
 

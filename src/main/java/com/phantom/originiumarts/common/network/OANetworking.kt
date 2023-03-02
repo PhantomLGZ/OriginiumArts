@@ -41,6 +41,8 @@ object OANetworking {
         OAAcuteOripathySendPack::class.java.baseMessage(PLAY_TO_SERVER)
         OAClearLearnedArtsSendPack::class.java.baseMessage(PLAY_TO_SERVER)
         OAAntiGravitySendPack::class.java.baseMessage(PLAY_TO_SERVER)
+        OACatastropheIntensitySendPack::class.java.baseMessage(PLAY_TO_SERVER)
+        OACatastropheSyncSendPack::class.java.baseMessage(PLAY_TO_CLIENT)
     }
 
     private fun <T : ISendPack> Class<T>.baseMessage(direction: NetworkDirection) {
@@ -59,16 +61,16 @@ object OANetworking {
         INSTANCE?.sendToServer(msg)
     }
 
-    fun syncCapability(player: ServerPlayer) {
+    fun sendToPlayer(player: ServerPlayer, msg: ISendPack) {
         INSTANCE?.sendTo(
-            OACapGetSendPack(player.getOACapability()?.serializeNBT()),
+            msg,
             player.connection.connection,
             PLAY_TO_CLIENT
         )
     }
 
-    fun sendLeftClickOnArtsUnitItem() {
-        INSTANCE?.sendToServer(OAClickSendPack())
+    fun syncCapability(player: ServerPlayer) {
+        sendToPlayer(player, OACapGetSendPack(player.getOACapability()?.serializeNBT()))
     }
 
     fun sendSetItemArts(artIds: IntArray) {
@@ -85,12 +87,11 @@ object OANetworking {
         INSTANCE?.sendToServer(OASetPlayerArtsSendPack(artIds))
     }
 
-    fun sendPlayerLearnArt(artIds: Int) {
-        INSTANCE?.sendToServer(OAPlayerLearnArtSendPack(artIds))
-    }
-
     fun sendSelectedArt(artId: Int) {
-        Minecraft.getInstance().player?.getOACapability()?.selectedArtId = artId
+        Minecraft.getInstance().player?.let {
+            it.getOACapability()?.selectedArtId = artId
+            it.stopUsingItem()
+        }
         INSTANCE?.sendToServer(OASetSelectedArtSendPack(artId))
     }
 

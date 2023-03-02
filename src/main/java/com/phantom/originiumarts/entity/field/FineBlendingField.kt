@@ -15,7 +15,7 @@ import net.minecraft.world.phys.Vec3
 class FineBlendingField(
     entityType: EntityType<FineBlendingField>,
     level: Level
-) : BaseFieldEntity<FineBlendingField>(entityType, level) {
+) : BaseFieldEntity(entityType, level) {
 
     private var countdown = 5
     private var healValue = 0.5f

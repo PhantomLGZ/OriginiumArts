@@ -1,4 +1,4 @@
-package com.phantom.originiumarts.entity.randerer
+package com.phantom.originiumarts.entity.renderer
 
 import com.mojang.blaze3d.vertex.PoseStack
 import com.mojang.math.Vector3f

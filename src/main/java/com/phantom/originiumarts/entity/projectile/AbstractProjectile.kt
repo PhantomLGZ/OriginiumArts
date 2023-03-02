@@ -21,8 +21,8 @@ import net.minecraft.world.phys.Vec3
 import java.util.function.BiFunction
 import java.util.function.Predicate
 
-abstract class BaseProjectile<T : BaseProjectile<T>>(
-    entityType: EntityType<T>,
+abstract class AbstractProjectile(
+    entityType: EntityType<out AbstractProjectile>,
     level: Level
 ) : Projectile(entityType, level) {
 
@@ -33,7 +33,7 @@ abstract class BaseProjectile<T : BaseProjectile<T>>(
     private var isInitialized = false
 
     constructor(
-        entityType: EntityType<T>,
+        entityType: EntityType<out AbstractProjectile>,
         level: Level,
         shooter: LivingEntity
     ) : this(entityType, level) {
@@ -287,15 +287,15 @@ abstract class BaseProjectile<T : BaseProjectile<T>>(
     companion object {
 
         val DATA_LIFETIME: EntityDataAccessor<Int> = SynchedEntityData.defineId(
-            BaseProjectile::class.java, EntityDataSerializers.INT
+            AbstractProjectile::class.java, EntityDataSerializers.INT
         )
 
         val DATA_SPEED_FACTOR: EntityDataAccessor<Float> = SynchedEntityData.defineId(
-            BaseProjectile::class.java, EntityDataSerializers.FLOAT
+            AbstractProjectile::class.java, EntityDataSerializers.FLOAT
         )
 
         val DATA_GRAVITY: EntityDataAccessor<Float> = SynchedEntityData.defineId(
-            BaseProjectile::class.java, EntityDataSerializers.FLOAT
+            AbstractProjectile::class.java, EntityDataSerializers.FLOAT
         )
 
     }

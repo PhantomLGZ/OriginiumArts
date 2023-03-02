@@ -3,7 +3,7 @@ package com.phantom.originiumarts.entity.model
 import com.mojang.blaze3d.vertex.PoseStack
 import com.mojang.blaze3d.vertex.VertexConsumer
 import com.phantom.originiumarts.OriginiumArtsMod
-import com.phantom.originiumarts.entity.Rioter
+import com.phantom.originiumarts.entity.AbstractRioter
 import net.minecraft.client.model.HumanoidModel
 import net.minecraft.client.model.geom.ModelLayerLocation
 import net.minecraft.client.model.geom.ModelPart
@@ -16,10 +16,10 @@ import net.minecraft.resources.ResourceLocation
 import kotlin.math.PI
 
 
-class RioterModel(root: ModelPart) : HumanoidModel<Rioter>(root) {
+class RioterModel(root: ModelPart) : HumanoidModel<AbstractRioter>(root) {
 
     override fun setupAnim(
-        pEntity: Rioter,
+        pEntity: AbstractRioter,
         limbSwing: Float,
         limbSwingAmount: Float,
         ageInTicks: Float,
@@ -75,7 +75,7 @@ class RioterModel(root: ModelPart) : HumanoidModel<Rioter>(root) {
                     .texOffs(0, 0).addBox(3.99f, -1.8684f, -5.9391f, 0.0f, 5.0f, 1.0f, CubeDeformation(0.0f)),
                 PartPose.offset(0.0f, 0.0f, -0.5f)
             )
-            val cube_r1 = hat.addOrReplaceChild(
+            hat.addOrReplaceChild(
                 "cube_r1",
                 CubeListBuilder.create().texOffs(32, 18)
                     .addBox(-4.0f, 5.0933f, -0.7074f, 8.0f, 0.0f, 5.0f, CubeDeformation(0.0f))
@@ -87,37 +87,37 @@ class RioterModel(root: ModelPart) : HumanoidModel<Rioter>(root) {
             )
             val head =
                 partdefinition.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.offset(0.0f, 0.0f, 0.0f))
-            val cube_r2 = head.addOrReplaceChild(
+            head.addOrReplaceChild(
                 "cube_r2",
                 CubeListBuilder.create().texOffs(19, 20)
                     .addBox(-3.0f, -6.5f, -3.5f, 6.0f, 7.0f, 6.0f, CubeDeformation(0.0f)),
                 PartPose.offsetAndRotation(0.0f, -0.8978f, -0.2765f, 0.4363f, 0.0f, 0.0f)
             )
-            val body = partdefinition.addOrReplaceChild(
+            partdefinition.addOrReplaceChild(
                 "body",
                 CubeListBuilder.create().texOffs(0, 0)
                     .addBox(-5.0f, 0.0f, -3.0f, 10.0f, 11.0f, 6.0f, CubeDeformation(0.0f)),
                 PartPose.offset(0.0f, 0.0f, 0.0f)
             )
-            val right_arm = partdefinition.addOrReplaceChild(
+            partdefinition.addOrReplaceChild(
                 "right_arm",
                 CubeListBuilder.create().texOffs(16, 42)
                     .addBox(-3.0f, -1.5f, -2.0f, 3.0f, 13.0f, 4.0f, CubeDeformation(0.0f)),
                 PartPose.offset(-5.0f, 1.5f, 0.0f)
             )
-            val left_arm = partdefinition.addOrReplaceChild(
+            partdefinition.addOrReplaceChild(
                 "left_arm",
                 CubeListBuilder.create().texOffs(36, 33)
                     .addBox(0.0f, -1.5f, -2.0f, 3.0f, 13.0f, 4.0f, CubeDeformation(0.0f)),
                 PartPose.offset(5.0f, 1.5f, 0.0f)
             )
-            val right_leg = partdefinition.addOrReplaceChild(
+            partdefinition.addOrReplaceChild(
                 "right_leg",
                 CubeListBuilder.create().texOffs(0, 35)
                     .addBox(-2.0f, -1.0f, -2.0f, 4.0f, 14.0f, 4.0f, CubeDeformation(0.0f)),
                 PartPose.offset(-2.5f, 11.0f, 0.0f)
             )
-            val left_leg = partdefinition.addOrReplaceChild(
+            partdefinition.addOrReplaceChild(
                 "left_leg",
                 CubeListBuilder.create().texOffs(32, 0)
                     .addBox(-2.0f, -1.0f, -2.0f, 4.0f, 14.0f, 4.0f, CubeDeformation(0.0f)),

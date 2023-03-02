@@ -50,7 +50,7 @@ object ArtZeroPointBurst : AbstractArts(
                     this,
                     10,
                     16f,
-                    5
+                    7
                 )
             )
         }

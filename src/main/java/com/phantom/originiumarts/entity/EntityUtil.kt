@@ -3,10 +3,9 @@ package com.phantom.originiumarts.entity
 import com.phantom.originiumarts.entity.field.BaseFieldEntity
 import com.phantom.originiumarts.entity.projectile.ArtBall
 import net.minecraft.world.entity.Entity
-import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.phys.AABB
 
-fun <T : LivingEntity> Entity.getEntitiesAround(diameter: Double, clazz: Class<T>): List<T> {
+fun <T : Entity> Entity.getEntitiesAround(diameter: Double, clazz: Class<T>): List<T> {
     val list = level.getEntitiesOfClass(
         clazz,
         AABB.ofSize(eyePosition, diameter, diameter, diameter)
@@ -15,9 +14,9 @@ fun <T : LivingEntity> Entity.getEntitiesAround(diameter: Double, clazz: Class<T
     return list
 }
 
-fun List<LivingEntity>.getNearestEntity(centerEntity: Entity): LivingEntity? {
+fun List<Entity>.getNearestEntity(centerEntity: Entity): Entity? {
     var length = Double.MAX_VALUE
-    var resultEntity: LivingEntity? = null
+    var resultEntity: Entity? = null
     this.forEach {
         val dis = it.position().distanceTo(centerEntity.position())
         if (dis < length) {
@@ -28,7 +27,7 @@ fun List<LivingEntity>.getNearestEntity(centerEntity: Entity): LivingEntity? {
     return resultEntity
 }
 
-fun <T : BaseFieldEntity<T>> T.setEffectFactorByEntity(entity: Entity) {
+fun BaseFieldEntity.setEffectFactorByEntity(entity: Entity) {
     if (entity is ArtBall) {
         setEffectFactor(entity.getEffectFactor())
     }

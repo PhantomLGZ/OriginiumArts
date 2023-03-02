@@ -1,4 +1,4 @@
-package com.phantom.originiumarts.entity.randerer
+package com.phantom.originiumarts.entity.renderer
 
 import com.phantom.originiumarts.entity.OriginiumSlug
 import com.phantom.originiumarts.entity.model.OriginiumSlugModel

@@ -26,6 +26,7 @@ class OALanguageProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.OA_STANDARD_STAFF.get(), "Standard Staff")
         add(ItemRegister.OA_STANDARD_SWORD.get(), "Standard Sword")
         add(ItemRegister.RIOTER_WATER_PIPE.get(), "Water Pipe")
+        add(ItemRegister.COCKTAIL.get(), "Cocktail")
         add(ItemRegister.DRILL_BATTLE_RECORD.get(), "Drill Battle Record")
         add(ItemRegister.FRONTLINE_BATTLE_RECORD.get(), "Frontline Battle Record")
         add(ItemRegister.TACTICAL_BATTLE_RECORD.get(), "Tactical Battle Record")
@@ -34,17 +35,20 @@ class OALanguageProvider(gen: DataGenerator, locale: String) :
         add(ItemRegister.ACID_ORIGINIUM_SLUG_EGG.get(), "Acid Originium Slug Egg")
         add(ItemRegister.DRONE_MONSTER_EGG.get(), "\"Monster\" Egg")
         add(ItemRegister.RIOTER_EGG.get(), "Rioter Egg")
+        add(ItemRegister.COCKTAIL_THROWER_EGG.get(), "Cocktail Thrower Egg")
 
         add(BlockRegister.ORIGINIUM_HOST_ROCK.get(), "Originium Host Rock")
         add(BlockRegister.ORIGINIUM_CLUSTER.get(), "Originium Cluster")
         add(BlockRegister.ORIGINIUM_LARGE_BUD.get(), "Originium Large Bud")
         add(BlockRegister.ORIGINIUM_MEDIUM_BUD.get(), "Originium Medium Bud")
         add(BlockRegister.ORIGINIUM_SMALL_BUD.get(), "Originium Small Bud")
+        add(BlockRegister.ORIGINIUM_DUST.get(), "Originium Dust")
         add(BlockRegister.OPERATING_BED_BLOCK.get(), "Operating Bed")
         add(EntityRegister.ORIGINIUM_SLUG.get(), "Originium Slug")
         add(EntityRegister.ACID_ORIGINIUM_SLUG.get(), "Acid Originium Slug")
         add(EntityRegister.DRONE_MONSTER.get(), "\"Monster\"")
         add(EntityRegister.RIOTER.get(), "Rioter")
+        add(EntityRegister.COCKTAIL_THROWER.get(), "Cocktail Thrower")
 
         //EFFECT
         add(EffectRegister.ACUTE_ORIPATHY.get(), "Acute Oripathy")
@@ -67,6 +71,8 @@ class OALanguageProvider(gen: DataGenerator, locale: String) :
         add(TextKey.KEY_TEXT_COMBAT_SKILL, "Combat Skill")
         add(TextKey.KEY_TEXT_ARTS_ADAPTABILITY, "Arts Adaptability")
         add(TextKey.KEY_TEXT_CLEAR_LEARNED_ARTS, "Clear learned arts")
+        add(TextKey.KEY_TEXT_SET_CATASTROPHE_INTENSITY, "Set Catastrophe Intensity")
+        add(TextKey.KEY_TEXT_ADD_CATASTROPHE, "Add Catastrophe")
 
         //ARTS
         ArtIgnition.addArtsLang(
