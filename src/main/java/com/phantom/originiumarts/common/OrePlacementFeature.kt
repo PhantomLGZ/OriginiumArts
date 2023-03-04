@@ -20,10 +20,24 @@ object OrePlacementFeature {
             OreConfiguration(
                 OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
                 BlockRegister.ORIGINIUM_HOST_ROCK.get().defaultBlockState(),
-                3
+                5
             )
         ),
-        rareOrePlacement(9, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.belowTop(0)))
+        commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-60), VerticalAnchor.belowTop(0)))
+    )
+
+    val ORIGINIUM_HOST_ROCK: Holder<PlacedFeature> = PlacementUtils.register(
+        "originium_host_rock",
+        FeatureUtils.register(
+            "originium_host_rock",
+            Feature.ORE,
+            OreConfiguration(
+                OreFeatures.STONE_ORE_REPLACEABLES,
+                BlockRegister.ORIGINIUM_HOST_ROCK.get().defaultBlockState(),
+                2
+            )
+        ),
+        commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-60), VerticalAnchor.belowTop(0)))
     )
 
     private fun orePlacement(modifier1: PlacementModifier, modifier2: PlacementModifier): List<PlacementModifier> {

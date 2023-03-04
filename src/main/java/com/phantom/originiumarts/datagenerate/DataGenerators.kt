@@ -13,7 +13,8 @@ object DataGenerators {
         val generator = event.generator
         if (event.includeServer()) {
             generator.addProvider(OARecipes(generator))
-            generator.addProvider(OALootTables(generator))
+            generator.addProvider(OABlockLootTables(generator))
+            generator.addProvider(OAEntityLootTables(generator))
             val blockTags = OABlockTags(generator, event.existingFileHelper)
             generator.addProvider(blockTags)
             generator.addProvider(OAItemTags(generator, blockTags, event.existingFileHelper))

@@ -91,7 +91,7 @@ object CapabilityRegister {
         }
         if (event.player.level.isClientSide) {
             if (!event.player.isUsingItem) {
-                event.player.getOACapability()?.tick()
+                event.player.getOACapability()?.clientTick()
             }
         }
     }

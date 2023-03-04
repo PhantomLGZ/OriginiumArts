@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "originiumarts:originium_fragment"
+    "item": "originiumarts:originium"
   },
   "result": "originiumarts:originium_ingot",
   "experience": 0.1,

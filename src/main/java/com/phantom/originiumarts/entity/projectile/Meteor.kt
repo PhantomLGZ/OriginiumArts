@@ -82,6 +82,10 @@ class Meteor(
                                     blockPos,
                                     BlockRegister.ORIGINIUM_HOST_ROCK.get().defaultBlockState()
                                 )
+                                r < 0.1 -> level.setBlockAndUpdate(
+                                    blockPos,
+                                    BlockRegister.ORIGINIUM_CLUSTER.get().defaultBlockState()
+                                )
                                 r < 0.2 -> level.setBlockAndUpdate(
                                     blockPos,
                                     BlockRegister.ORIGINIUM_LARGE_BUD.get().defaultBlockState()

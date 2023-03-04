@@ -42,6 +42,9 @@ data class CatastropheServerData(
             val blockState = level.getBlockState(blockPos)
             if (l < 0.1) {
                 when {
+                    blockState.`is`(BlockRegister.ORIGINIUM_LARGE_BUD.get()) -> {
+                        level.setBlockAndUpdate(blockPos, BlockRegister.ORIGINIUM_CLUSTER.get().defaultBlockState())
+                    }
                     blockState.`is`(BlockRegister.ORIGINIUM_MEDIUM_BUD.get()) -> {
                         level.setBlockAndUpdate(blockPos, BlockRegister.ORIGINIUM_LARGE_BUD.get().defaultBlockState())
                     }
@@ -60,12 +63,15 @@ data class CatastropheServerData(
             ) {
                 when {
                     l < 0.01 -> {
-                        level.setBlockAndUpdate(blockPos, BlockRegister.ORIGINIUM_LARGE_BUD.get().defaultBlockState())
+                        level.setBlockAndUpdate(blockPos, BlockRegister.ORIGINIUM_CLUSTER.get().defaultBlockState())
                     }
                     l < 0.04 -> {
+                        level.setBlockAndUpdate(blockPos, BlockRegister.ORIGINIUM_LARGE_BUD.get().defaultBlockState())
+                    }
+                    l < 0.08 -> {
                         level.setBlockAndUpdate(blockPos, BlockRegister.ORIGINIUM_MEDIUM_BUD.get().defaultBlockState())
                     }
-                    l < 0.1 -> {
+                    l < 0.2 -> {
                         level.setBlockAndUpdate(blockPos, BlockRegister.ORIGINIUM_SMALL_BUD.get().defaultBlockState())
                     }
                     else -> {

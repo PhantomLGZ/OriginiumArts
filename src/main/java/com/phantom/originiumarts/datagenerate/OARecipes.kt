@@ -16,7 +16,7 @@ class OARecipes(generator: DataGenerator) : RecipeProvider(generator) {
         smeltingResultFromBase(
             consumer,
             ItemRegister.ORIGINIUM_INGOT.get(),
-            ItemRegister.ORIGINIUM_FRAGMENT.get()
+            ItemRegister.ORIGINIUM.get()
         )
         nineBlockStorageRecipes(
             consumer,

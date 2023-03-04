@@ -14,7 +14,7 @@ import java.util.*
 
 class OriginiumHostRock : AmethystBlock(
     Properties.of(Material.AMETHYST)
-        .strength(2f)
+        .strength(30.0f, 1200.0f)
         .randomTicks()
         .sound(SoundType.AMETHYST)
         .requiresCorrectToolForDrops()

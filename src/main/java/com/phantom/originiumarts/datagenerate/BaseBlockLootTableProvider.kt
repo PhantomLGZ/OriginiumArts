@@ -28,7 +28,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator
 import org.apache.logging.log4j.LogManager
 import java.io.IOException
 
-abstract class BaseLootTableProvider(private val generator: DataGenerator) :
+abstract class BaseBlockLootTableProvider(private val generator: DataGenerator) :
     LootTableProvider(generator) {
 
     val lootTables = mutableMapOf<Block, LootTable.Builder>()
@@ -122,7 +122,7 @@ abstract class BaseLootTableProvider(private val generator: DataGenerator) :
     }
 
     override fun getName(): String {
-        return "Originium Arts LootTables"
+        return "Originium Arts Block LootTables"
     }
 
     companion object {

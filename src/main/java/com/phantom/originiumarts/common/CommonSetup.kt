@@ -73,5 +73,9 @@ object CommonSetup {
             GenerationStep.Decoration.UNDERGROUND_ORES,
             OrePlacementFeature.DEEPSLATE_ORIGINIUM_HOST_ROCK
         )
+        event.generation.addFeature(
+            GenerationStep.Decoration.UNDERGROUND_ORES,
+            OrePlacementFeature.ORIGINIUM_HOST_ROCK
+        )
     }
 }

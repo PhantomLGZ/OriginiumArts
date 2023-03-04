@@ -18,6 +18,7 @@ import com.phantom.originiumarts.common.arts.ArtEmpty
 import com.phantom.originiumarts.common.ArtsManager.getArtById
 import com.phantom.originiumarts.common.network.OANetworking
 import com.phantom.originiumarts.common.network.sendpack.OAAntiGravitySendPack
+import com.phantom.originiumarts.common.weather.CatastropheClientManager
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.TranslatableComponent
@@ -54,12 +55,15 @@ class OriginiumArtsCapability : INBTSerializable<CompoundTag> {
     var cellOriginiumAssimilation = 0.0 // TODO
     var bloodOriginiumCrystalDensity = 0.0 // TODO
 
-    fun tick() {
+    fun clientTick() {
         if (burdenCount >= 0) {
             burdenCount--
         }
         if (burdenCount < 0) {
             decBurden(burdenRecovery)
+        }
+        if (CatastropheClientManager.catastropheEffect > 0) {
+            addBurden(CatastropheClientManager.catastropheEffect)
         }
         if (gravityCount > 0) {
             gravityCount--
