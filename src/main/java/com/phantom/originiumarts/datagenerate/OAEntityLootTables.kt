@@ -48,6 +48,16 @@ class OAEntityLootTables(private val generator: DataGenerator) : LootTableProvid
                     enchantCountMax = 2f
                 )
             )
+        lootTables[EntityRegister.INFUSED_ORIGINIUM_SLUG.get()] = LootTable.lootTable()
+            .withPool(
+                createSimplePool(
+                    item = ItemRegister.DRILL_BATTLE_RECORD.get(),
+                    itemCountMin = 0f,
+                    itemCountMax = 2f,
+                    enchantCountMin = 0f,
+                    enchantCountMax = 2f
+                )
+            )
         lootTables[EntityRegister.DRONE_MONSTER.get()] = LootTable.lootTable()
             .withPool(
                 createSimplePool(

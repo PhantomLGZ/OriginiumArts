@@ -70,6 +70,11 @@ object ItemRegister {
             ForgeSpawnEggItem(EntityRegister.ACID_ORIGINIUM_SLUG, 0x97876E, 0xFF4208, basicSetting())
         }
 
+    val INFUSED_ORIGINIUM_SLUG_EGG: RegistryObject<ForgeSpawnEggItem> =
+        ITEMS.register("infused_originium_slug") {
+            ForgeSpawnEggItem(EntityRegister.INFUSED_ORIGINIUM_SLUG, 0x97876E, 0xF68B18, basicSetting())
+        }
+
     val DRONE_MONSTER_EGG: RegistryObject<ForgeSpawnEggItem> =
         ITEMS.register("drone_monster_egg") {
             ForgeSpawnEggItem(EntityRegister.DRONE_MONSTER, 0x373737, 0x7E7E7E, basicSetting())

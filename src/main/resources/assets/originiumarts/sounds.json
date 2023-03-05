@@ -15,6 +15,14 @@
       }
     ]
   },
+  "enemy.magic_m": {
+    "subtitle": "subtitle.originiumarts.magic_m",
+    "sounds": [
+      {
+        "name": "originiumarts:enemy/magic_m"
+      }
+    ]
+  },
   "enemy.vehicle_n": {
     "subtitle": "subtitle.originiumarts.vehicle_n",
     "sounds": [

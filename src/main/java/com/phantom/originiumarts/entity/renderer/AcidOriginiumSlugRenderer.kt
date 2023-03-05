@@ -12,7 +12,7 @@ class AcidOriginiumSlugRenderer(context: EntityRendererProvider.Context) :
     LivingEntityRenderer<AcidOriginiumSlug, AcidOriginiumSlugModel>(
         context,
         AcidOriginiumSlugModel(context.bakeLayer(AcidOriginiumSlugModel.LAYER)),
-        0.4f
+        0.6f
     ) {
 
     override fun shouldShowName(entity: AcidOriginiumSlug): Boolean {

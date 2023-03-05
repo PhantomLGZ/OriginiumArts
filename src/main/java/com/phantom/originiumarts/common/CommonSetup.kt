@@ -28,6 +28,12 @@ object CommonSetup {
             AbstractOriginiumSlug::checkOriginiumSlugSpawnRules
         )
         SpawnPlacements.register(
+            EntityRegister.INFUSED_ORIGINIUM_SLUG.get(),
+            SpawnPlacements.Type.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            AbstractOriginiumSlug::checkOriginiumSlugSpawnRules
+        )
+        SpawnPlacements.register(
             EntityRegister.DRONE_MONSTER.get(),
             SpawnPlacements.Type.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING,
@@ -56,6 +62,10 @@ object CommonSetup {
         event.spawns.addSpawn(
             MobCategory.MONSTER,
             MobSpawnSettings.SpawnerData(EntityRegister.ACID_ORIGINIUM_SLUG.get(), 2, 2, 2)
+        )
+        event.spawns.addSpawn(
+            MobCategory.MONSTER,
+            MobSpawnSettings.SpawnerData(EntityRegister.INFUSED_ORIGINIUM_SLUG.get(), 2, 2, 2)
         )
         event.spawns.addSpawn(
             MobCategory.MONSTER,
